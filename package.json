@@ -1,5 +1,5 @@
 {
-    "name": "codestyle",
+    "name": "@labeg/code-style",
     "version": "1.0.1",
     "scripts": {
         "manupdate": "rm -rvf node_modules && npm install",
@@ -7,7 +7,16 @@
         "fullupdate": "ncu -a && npm run reinstall",
         "check": "tslint --fix --project ./tsconfig.json && tsc"
     },
-    "private": true,
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/LabEG/code-style.git"
+    },
+    "author": "Labutin Evgeniy",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/LabEG/code-style/issues"
+    },
+    "homepage": "https://github.com/LabEG/code-style#readme",
     "dependencies": {
         "alertify.js": "=1.0.12",
         "class-validator": "=0.9.1",
