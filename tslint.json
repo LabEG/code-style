@@ -1,6 +1,6 @@
 {
   "extends": [
-    "tslint:latest"
+    "tslint:all"
   ],
   "rules": {
     /*
@@ -114,7 +114,6 @@
     "no-unsafe-any": false,
     "no-unsafe-finally": true,
     "no-unused-expression": true,
-    "no-unused-variable": true,
     "no-use-before-declare": false,
     "no-var-keyword": true,
     "no-void-expression": false,
@@ -130,7 +129,6 @@
       "allow-null-check",
       "allow-undefined-check"
     ],
-    "typeof-compare": true,
     "use-default-type-parameter": true,
     "use-isnan": true,
     /*
@@ -205,6 +203,7 @@
     "file-header": [
       false
     ],
+    "file-name-casing": [true, "kebab-case"],
     "import-spacing": true,
     "interface-name": [
       true,
