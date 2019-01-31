@@ -1,6 +1,6 @@
 {
     "name": "@labeg/code-style",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "scripts": {
         "manupdate": "rm -rvf node_modules && npm install",
         "reinstall": "rm -rvf node_modules && npm install && npm dedupe && npm prune",
@@ -18,7 +18,6 @@
     },
     "homepage": "https://github.com/LabEG/code-style#readme",
     "dependencies": {
-        "codelyzer": "^4.5.0",
         "tslint-eslint-rules": "^5.4.0"
     },
     "devDependencies": {

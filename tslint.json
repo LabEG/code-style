@@ -1,6 +1,5 @@
 {
     "extends": [
-        "codelyzer",
         "tslint-eslint-rules",
         "tslint:all"
     ],
