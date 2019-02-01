@@ -113,13 +113,11 @@
         "no-string-literal": true,
         "no-string-throw": true,
         "no-submodule-imports": false,
-        "no-sparse-arrays": true,
-        "no-string-literal": true,
-        "no-string-throw": true,
         "no-switch-case-fall-through": true,
         "no-this-assignment": true,
         "no-unbound-method": true,
         "no-unnecessary-class": [
+            true,
             "allow-empty-class"
         ],
         "no-unsafe-any": false,
@@ -155,8 +153,8 @@
         "eofline": true,
         "indent": [
             true,
-            4,
-            "spaces"
+            "spaces",
+            4
         ],
         "linebreak-style": [
             true,
@@ -272,7 +270,10 @@
             true,
             "never"
         ],
-        "space-within-parens" : [1],
+        "space-within-parens": [
+            true,
+            1
+        ],
         "switch-final-break": [
             true,
             "always"
