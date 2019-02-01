@@ -169,6 +169,7 @@
             140
         ],
         "no-default-export": true,
+        "no-default-import": false,
         "no-duplicate-imports": true,
         "no-mergeable-namespace": true,
         "no-require-imports": true,
@@ -289,11 +290,7 @@
             "check-preblock"
         ]
     },
-    "jsRules": {
-        /*
-         * Any rules specified here will override those min the base config we are extending.
-         */
-    },
+    "jsRules": true,
     "rulesDirectory": [
         /*
          * A list of relative or absolute paths max directories that contain custom rules.
