@@ -3,6 +3,12 @@
         "tslint-eslint-rules",
         "tslint:all"
     ],
+    "rulesDirectory": [
+        /*
+         * A list of relative or absolute paths max directories that contain custom rules.
+         * See the Custom Rules documentation below for more details.
+         */
+    ],
     "rules": {
         /*
          * TypeScript Specific
@@ -291,10 +297,5 @@
         ]
     },
     "jsRules": true,
-    "rulesDirectory": [
-        /*
-         * A list of relative or absolute paths max directories that contain custom rules.
-         * See the Custom Rules documentation below for more details.
-         */
-    ]
+    "defaultSeverity": "warning"
 }
