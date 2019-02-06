@@ -272,7 +272,7 @@
         ],
         "space-within-parens": [
             true,
-            1
+            0
         ],
         "switch-final-break": [
             true,
