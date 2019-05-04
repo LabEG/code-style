@@ -1,3 +1,8 @@
+![David](https://img.shields.io/david/LabEG/code-style.svg)
+![David](https://img.shields.io/david/dev/LabEG/code-style.svg)
+![GitHub](https://img.shields.io/github/license/LabEG/code-style.svg)
+
+
 # CodeStyle
 В этом репозитории я собираю файлы стилей для облегчения синхронизации между проектами.
 
