@@ -18,9 +18,11 @@
     },
     "homepage": "https://github.com/LabEG/code-style#readme",
     "dependencies": {
-        "tslint-eslint-rules": "^5.4.0"
+        "tslint-eslint-rules": "^5.4.0",
+        "stylelint-config-standard": "^18.3.0"
     },
     "devDependencies": {
+        "stylelint": "^10.0.1",
         "tslint": "^5.16.0",
         "typescript": "^3.4.5",
         "tslib": "^1.9.3"
