@@ -50,7 +50,7 @@
                 if (err) {
                     return console.log(err);
                 }
-                let result = data.replace(/console\.log\("Build date: ", ".+?"\);/, `console.log("Build date: ", "${new Date().toLocaleString()}");`);
+                const result = data.replace(/console\.log\("Build date: ", ".+?"\);/, `console.log("Build date: ", "${new Date().toLocaleString()}");`);
 
                 fs.writeFile("src/main.ts", result, "utf8", function(err) {
                     if (err) { return console.log(err); }
