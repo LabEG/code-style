@@ -1,13 +1,13 @@
-﻿// Include gulp
-const gulp = require('gulp');
+// Include gulp
+const gulp = require("gulp");
 
 // main
-const spawn = require('child_process').spawn;
-const killTree = require('tree-kill');
+const spawn = require("child_process").spawn;
+const killTree = require("tree-kill");
 
 // css, less
-const csscomb = require('gulp-csscomb');
-const csslint = require('gulp-csslint');
+const csscomb = require("gulp-csscomb");
+const csslint = require("gulp-csslint");
 
 // ts
 const gulpTslint = require("gulp-tslint");
@@ -22,20 +22,20 @@ function registerTask(appName) {
      */
 
     gulp.task(
-        appName + '-CS-LESS',
-        function () {
-            const pathToCSSAll = 'src/app/' + appNameLC + '/**/*.{css,less}';
+        appName + "-CS-LESS",
+        function() {
+            const pathToCSSAll = "src/app/" + appNameLC + "/**/*.{css,less}";
             return gulp.src(pathToCSSAll)
                 .pipe(csslint())
                 .pipe(csscomb())
-                .pipe(gulp.dest('src/app/' + appNameLC + '/'));
+                .pipe(gulp.dest("src/app/" + appNameLC + "/"));
         }
     );
 
     gulp.task(
-        appName + '-CS-TS',
-        function () {
-            const pathToJSAll = 'src/app/' + appNameLC + '/**/*.{ts,tsx}';
+        appName + "-CS-TS",
+        function() {
+            const pathToJSAll = "src/app/" + appNameLC + "/**/*.{ts,tsx}";
             return gulp.src(pathToJSAll)
                 .pipe(gulpTslint({
                     formatter: "msbuild",
@@ -51,10 +51,10 @@ function registerTask(appName) {
     );
 
     gulp.task(
-        appName + '-CS-All',
+        appName + "-CS-All",
         [
-            appName + '-CS-LESS',
-            appName + '-CS-TS'
+            appName + "-CS-LESS",
+            appName + "-CS-TS"
         ]
     );
 
@@ -63,18 +63,18 @@ function registerTask(appName) {
      */
 
     gulp.task(
-        appName + '-Watch',
-        function () {
-            const port = appNameLC.split('').reduce((summ, char) => summ += char.charCodeAt(0), 4200);
-            const child = spawn('sh', ['ng', 'serve', '--configuration=streamdev', '--host=0.0.0.0', '--live-reload=false', '--port=' + port], {stdio: 'inherit'});
-            process.on('SIGINT', () => killTree(child.pid));
+        appName + "-Watch",
+        function() {
+            const port = appNameLC.split("").reduce((summ, char) => summ += char.charCodeAt(0), 4200);
+            const child = spawn("sh", ["ng", "serve", "--configuration=streamdev", "--host=0.0.0.0", "--live-reload=false", "--port=" + port], {stdio: "inherit"});
+            process.on("SIGINT", () => killTree(child.pid));
         }
     );
 
     gulp.task(
-        appName + '-Build',
-        function () {
-            spawn('sh', ['ng', 'build', '--prod'], {stdio: 'inherit'});
+        appName + "-Build",
+        function() {
+            spawn("sh", ["ng", "build", "--prod"], {stdio: "inherit"});
         }
     );
 
