@@ -50,7 +50,7 @@ module.exports = {
         "dot-location": ["error", "property"],
         "no-inline-comments": "off",
         "line-comment-position": "off",
-        "yoda": ["never", { exceptRange: true }],
+        "yoda": ["error", "never", { exceptRange: true }],
 
         "react/jsx-closing-bracket-location": ["error", "after-props"],
         "react/jsx-first-prop-new-line": ["error", "never"],
