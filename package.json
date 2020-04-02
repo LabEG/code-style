@@ -3,7 +3,7 @@
     "version": "1.0.18",
     "scripts": {
         "packages:manupdate": "rm -rvf node_modules && npm install",
-        "packages:reinstall": "rm -rvf npm-shrinkwrap.json && rm -rvf node_modules && npm install && npm dedupe && npm prune && npm shrinkwrap",
+        "packages:reinstall": "rm -rvf node_modules && npm install && npm dedupe && npm prune",
         "packages:fullupdate": "ncu -u && npm run packages:reinstall",
         "cs:eslint": "eslint --fix -c .eslintrc.js --ext .tsx,.ts,.jsx,.js ./src/",
         "cs:stylelint": "stylelint --fix ./src/**/*.scss",
@@ -29,8 +29,7 @@
         "build:bundle_cabinete_es5": "rollup --config --environment NODE_ENV:production,APP:Cabinet_es5",
         "build:bundle_polyfills_es2015": "rollup --config --environment NODE_ENV:production,APP:Polyfills_es2015",
         "build:bundle_polyfills_es5": "rollup --config --environment NODE_ENV:production,APP:Polyfills_es5",
-        "build": "concurrently \"npm run build:styles\" \"npm run build:scripts\" && concurrently \"npm run build:static\" \"npm run build:images\" \"npm run build:html\" \"npm run build:bundle_landing_es2015\" \"npm run build:bundle_landing_es5\" \"npm run build:bundle_polyfills_es2015\" \"npm run build:bundle_polyfills_es5\" \"npm run build:bundle_cabinete_es2015\" \"npm run build:bundle_cabinete_es5\"",
-        "check": "tslint --fix --project ./tsconfig.json"
+        "build": "concurrently \"npm run build:styles\" \"npm run build:scripts\" && concurrently \"npm run build:static\" \"npm run build:images\" \"npm run build:html\" \"npm run build:bundle_landing_es2015\" \"npm run build:bundle_landing_es5\" \"npm run build:bundle_polyfills_es2015\" \"npm run build:bundle_polyfills_es5\" \"npm run build:bundle_cabinete_es2015\" \"npm run build:bundle_cabinete_es5\""
     },
     "repository": {
         "type": "git",
