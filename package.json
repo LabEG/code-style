@@ -1,6 +1,6 @@
 {
     "name": "@labeg/code-style",
-    "version": "1.0.18",
+    "version": "1.0.19",
     "scripts": {
         "packages:manupdate": "rm -rvf node_modules && npm install",
         "packages:reinstall": "rm -rvf npm-shrinkwrap.json && rm -rvf node_modules && npm install && npm dedupe && npm prune && npm shrinkwrap",
