@@ -50,7 +50,7 @@ module.exports = {
         "dot-location": ["error", "property"],
         "no-inline-comments": "off",
         "line-comment-position": "off",
-        "yoda": ["never", { exceptRange: true }],
+        "yoda": ["error", "never", { exceptRange: true }],
 
         "react/jsx-closing-bracket-location": ["error", "after-props"],
         "react/jsx-first-prop-new-line": ["error", "never"],
@@ -105,5 +105,6 @@ module.exports = {
         "@typescript-eslint/no-unnecessary-condition": "off",
         "@typescript-eslint/return-await": ["error", "always"],
         "@typescript-eslint/no-unused-vars-experimental": ["error", { ignoreArgsIfArgsAfterAreUsed: true }],
+        "@typescript-eslint/no-unused-vars": "off"
     }
 };
