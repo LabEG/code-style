@@ -2,8 +2,8 @@
     "name": "@labeg/code-style",
     "version": "1.0.24",
     "scripts": {
-        "packages:manupdate": "rm -rvf node_modules && npm install",
-        "packages:reinstall": "rm -rvf node_modules && npm install && npm dedupe && npm prune",
+        "packages:manupdate": "rm -rf node_modules && npm install",
+        "packages:reinstall": "rm -rf node_modules && npm install && npm dedupe && npm prune",
         "packages:fullupdate": "ncu -u && npm run packages:reinstall",
         "cs:eslint": "eslint --fix -c .eslintrc.js --ext .tsx,.ts,.jsx,.js ./src/",
         "cs:stylelint": "stylelint --fix ./src/**/*.scss",
