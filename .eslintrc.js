@@ -51,6 +51,7 @@ module.exports = {
         "no-inline-comments": "off",
         "line-comment-position": "off",
         "yoda": ["error", "never", { onlyEquality: true }],
+        "no-case-declarations": "off",
 
         "react/jsx-closing-bracket-location": ["error", "after-props"],
         "react/jsx-first-prop-new-line": ["error", "never"],
@@ -68,6 +69,7 @@ module.exports = {
         "react/no-danger": "off",
         "react/sort-comp": "off",
         "react/no-multi-comp": ["error", { ignoreStateless: true }],
+        "react/forbid-component-props": "off",
 
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-unused-vars": ["error", { ignoreArgsIfArgsAfterAreUsed: true }],
