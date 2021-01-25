@@ -115,6 +115,7 @@ module.exports = {
         "@typescript-eslint/no-implicit-any-catch": "off", // typescript don't accept catch typings
         "@typescript-eslint/consistent-type-imports": "off",
         "@typescript-eslint/no-confusing-void-expression": "off",
-        "@typescript-eslint/object-curly-spacing": "off"
+        "@typescript-eslint/object-curly-spacing": "off",
+        "@typescript-eslint/no-type-alias": "off"
     }
 };
