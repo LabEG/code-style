@@ -107,7 +107,14 @@ module.exports = {
         "@typescript-eslint/no-unnecessary-condition": "off",
         "@typescript-eslint/return-await": ["error", "always"],
         "@typescript-eslint/no-unused-vars-experimental": ["error", { ignoreArgsIfArgsAfterAreUsed: true }],
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/no-invalid-void-type": "off"
+        "@typescript-eslint/no-unused-vars": "off",      
+        "@typescript-eslint/no-invalid-void-type": "off", // new rule, check later
+        "@typescript-eslint/member-ordering": "off", // current eslint version bug, enable after fix
+        "@typescript-eslint/lines-between-class-members": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-implicit-any-catch": "off", // typescript don't accept catch typings
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/no-confusing-void-expression": "off",
+        "@typescript-eslint/object-curly-spacing": "off"
     }
 };
