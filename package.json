@@ -1,6 +1,6 @@
 {
     "name": "@labeg/code-style",
-    "version": "1.0.87",
+    "version": "1.0.88",
     "scripts": {
         "packages:manupdate": "rm -rf node_modules && npm install",
         "packages:reinstall": "rm -rf node_modules && npm install && npm dedupe && npm prune",
