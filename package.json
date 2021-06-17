@@ -2,9 +2,6 @@
     "name": "@labeg/code-style",
     "version": "1.0.90",
     "scripts": {
-        "packages:manupdate": "rm -rf node_modules && npm install",
-        "packages:reinstall": "rm -rf node_modules && npm install && npm dedupe && npm prune",
-        "packages:fullupdate": "ncu -u && npm run packages:reinstall",
         "cs:eslint": "eslint --fix -c .eslintrc.js --ext .tsx,.ts,.jsx,.js ./src/",
         "cs:stylelint": "stylelint --fix ./src/**/*.scss",
         "cs": "concurrently \"npm run cs:eslint\" \"npm run cs:stylelint\"",
@@ -42,15 +39,15 @@
     },
     "homepage": "https://github.com/LabEG/code-style#readme",
     "dependencies": {
-        "@typescript-eslint/eslint-plugin": "^4.15.0",
-        "@typescript-eslint/parser": "^4.15.0",
-        "eslint": "^7.19.0",
-        "eslint-plugin-react": "^7.22.0",
-        "react": "^17.0.1",
-        "stylelint": "^13.10.0",
-        "stylelint-config-standard": "^20.0.0",
-        "tslib": "^2.1.0",
-        "typescript": "^4.1.5"
+        "@typescript-eslint/eslint-plugin": "^4.27.0",
+        "@typescript-eslint/parser": "^4.27.0",
+        "eslint": "^7.28.0",
+        "eslint-plugin-react": "^7.24.0",
+        "react": "^17.0.2",
+        "stylelint": "^13.13.1",
+        "stylelint-config-standard": "^22.0.0",
+        "tslib": "^2.3.0",
+        "typescript": "^4.3.3"
     },
     "devDependencies": {}
 }
