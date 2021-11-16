@@ -1,6 +1,6 @@
 {
     "name": "@labeg/code-style",
-    "version": "2.0.22",
+    "version": "2.0.23",
     "scripts": {
         "cs:eslint": "eslint --fix -c .eslintrc.js --ext .tsx,.ts,.jsx,.js ./src/",
         "cs:stylelint": "stylelint --fix ./src/**/*.scss",
