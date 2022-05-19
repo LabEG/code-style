@@ -3,20 +3,21 @@ module.exports = {
     parserOptions: {
         project: "tsconfig.json",
         sourceType: "module",
+        ecmaVersion: "latest",
         ecmaFeatures: {
             jsx: true
         }
     },
-    plugins: ["react", "@typescript-eslint"],
     extends: [
         "eslint:all",
         "plugin:react/all",
-        "plugin:@typescript-eslint/all"
+        "plugin:@typescript-eslint/all",
+        "plugin:jsx-a11y/strict"
     ],
     root: true,
     env: {
         browser: true,
-        es2021: true
+        es2022: true
     },
     ignorePatterns: ["node_modules/*"],
     settings: {
