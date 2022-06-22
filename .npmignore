@@ -1,5 +1,11 @@
+# Sample for copy in others projects
 
-node_modules/
-.idea/
-.vscode/
-.stats/
+*
+!.editorconfig
+!.eslintrc.js
+!.remarkrc
+!.stylelintrc
+!LICENSE
+!package-lock.json
+!package.json
+!README.md
