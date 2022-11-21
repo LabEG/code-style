@@ -11,13 +11,15 @@ module.exports = {
     extends: [
         "eslint:all",
         "plugin:react/all",
+        "plugin:react-hooks/recommended",
         "plugin:@typescript-eslint/all",
         "plugin:jsx-a11y/strict"
     ],
     root: true,
     env: {
         browser: true,
-        es2022: true
+        es2022: true,
+        node: true
     },
     ignorePatterns: ["node_modules/*"],
     settings: {

@@ -8,23 +8,20 @@
         "type": "git",
         "url": "git+https://github.com/LabEG/code-style.git"
     },
-    "author": "Labutin Evgeniy",
+    "author": "Evgeniy Labutin ",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/LabEG/code-style/issues"
     },
     "homepage": "https://github.com/LabEG/code-style#readme",
     "dependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.29.0",
-        "@typescript-eslint/parser": "^5.29.0",
-        "eslint": "^8.18.0",
-        "eslint-plugin-react": "^7.30.0",
-        "eslint-plugin-jsx-a11y": "^6.5.1",
-        "react": "^18.2.0",
-        "stylelint": "^14.9.1",
-        "stylelint-config-standard": "^26.0.0",
-        "tslib": "^2.4.0",
-        "typescript": "^4.7.4"
-    },
-    "devDependencies": {}
+        "@typescript-eslint/eslint-plugin": "^5.43.0",
+        "@typescript-eslint/parser": "^5.43.0",
+        "eslint": "^8.28.0",
+        "eslint-plugin-jsx-a11y": "^6.6.1",
+        "eslint-plugin-react": "^7.31.11",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "stylelint": "^14.15.0",
+        "stylelint-config-standard": "^29.0.0"
+    }
 }
