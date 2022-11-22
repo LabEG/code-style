@@ -68,5 +68,7 @@ module.exports = {
         "@typescript-eslint/naming-convention": "off", // bad with react func components
         "@typescript-eslint/no-confusing-void-expression": "off", // more nice
         "@typescript-eslint/member-ordering": "off", // need correct priority
+
+        "@typescript-eslint/keyword-spacing": "off" // bug, remove later
     }
 };
