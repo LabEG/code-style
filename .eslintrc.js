@@ -69,6 +69,8 @@ module.exports = {
         "@typescript-eslint/no-confusing-void-expression": "off", // more nice
         "@typescript-eslint/member-ordering": "off", // need correct priority
 
-        "@typescript-eslint/keyword-spacing": "off" // bug, remove later
+        "@typescript-eslint/keyword-spacing": "off", // bug, remove later
+        "@typescript-eslint/no-import-type-side-effects": "off", // bug, remove later
+        "no-duplicate-imports": "off" // bug, remove later
     }
 };
