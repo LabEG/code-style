@@ -6,7 +6,18 @@
  */
 
 const jsAndTsRules = {
+    // Eslint rules
     "sort-imports": "off", // Need found sorter
+    "sort-keys": "off", // More nice
+    "one-var": ["error", "never"], // More nice
+    "no-ternary": "off", // More nice
+    "no-void": "off", // Strange rule
+    "no-bitwise": "off", // Used in many projects
+    "no-inline-comments": "off", // Maybe later?
+    "line-comment-position": "off", // Maybe later?
+
+
+    // Eslint moved to Stylistic, but now to buggy for js. Remove after fix bugs in new versions Stylistic
     "max-len": [
         "error", {
             code: 140,
@@ -22,17 +33,12 @@ const jsAndTsRules = {
     ], // More nice
     "function-call-argument-newline": ["error", "consistent"], // More nice
     "quote-props": ["error", "as-needed"], // More nice
-    "sort-keys": "off", // More nice
-    "one-var": ["error", "never"], // More nice
-    "no-ternary": "off", // More nice
     "multiline-ternary": ["error", "always-multiline"], // More nice
     "array-element-newline": ["error", "consistent"], // More nice
     "operator-linebreak": ["error", "after"], // More nice
-    "no-void": "off", // Strange rule
-    "no-bitwise": "off", // Used in many projects
-    "no-inline-comments": "off", // Maybe later?
-    "line-comment-position": "off", // Maybe later?
 
+
+    // Stylistic rules
     "@stylistic/max-len": [
         "error", {
             code: 140,
@@ -56,7 +62,11 @@ const jsAndTsRules = {
 
 module.exports = {
     extends: [
-        "eslint:all" // There is no React because they are used strictly with Typescript.
+        "eslint:all", // There is no React because they are used strictly with Typescript.
+        // "plugin:@stylistic/all-extends" // Bug, begin incorrect formatting, check in new versions
+    ],
+    plugins: [
+        "@stylistic/migrate"
     ],
     root: true,
     env: {
