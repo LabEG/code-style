@@ -51,11 +51,6 @@ module.exports = {
         node: true
     },
     ignorePatterns: ["node_modules/*"],
-    settings: {
-        react: {
-            version: "detect"
-        }
-    },
     rules: {
         ...jsAndTsRules
     },
@@ -63,19 +58,21 @@ module.exports = {
         {
             files: ["**/*.{ts,tsx}"],
             settings: {
+                react: {
+                    version: "detect"
+                },
                 "import/parsers": {
                     "@typescript-eslint/parser": [".ts", ".tsx"]
                 },
                 "import/resolver": {
                     typescript: {
-                        project: "./tsconfig.json"
+                        project: "tsconfig.json"
                     }
                 }
             },
             parser: "@typescript-eslint/parser",
             parserOptions: {
                 project: "tsconfig.json",
-                tsconfigRootDir: __dirname,
                 sourceType: "module",
                 ecmaVersion: "latest",
                 ecmaFeatures: {
