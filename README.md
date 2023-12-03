@@ -17,7 +17,17 @@ npm i -D @labeg/code-style
 module.exports = {
     extends: ["./node_modules/@labeg/code-style/.eslintrc.js"],
     rules:{
-        // override here
+        // Override here
+    }
+};
+```
+
+Версия для NextJS:
+```Javascript
+module.exports = {
+    extends: ["next/core-web-vitals", "./node_modules/@labeg/code-style/.eslintrc.js"],
+    rules: {
+        // Override here
     }
 };
 ```
