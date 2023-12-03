@@ -32,6 +32,26 @@ const jsAndTsRules = {
     "no-bitwise": "off", // Used in many projects
     "no-inline-comments": "off", // Maybe later?
     "line-comment-position": "off", // Maybe later?
+
+    "@stylistic/max-len": [
+        "error", {
+            code: 140,
+            comments: 140
+        }
+    ], // More nice, for modern screens
+    "@stylistic/padded-blocks": [
+        "error", {
+            classes: "always",
+            blocks: "never",
+            switches: "never"
+        }
+    ], // More nice
+    "@stylistic/function-call-argument-newline": ["error", "consistent"], // More nice
+    "@stylistic/quote-props": ["error", "as-needed"], // More nice
+    "@stylistic/multiline-ternary": ["error", "always-multiline"], // More nice
+    "@stylistic/array-element-newline": ["error", "consistent"], // More nice
+    "@stylistic/operator-linebreak": ["error", "after"], // More nice
+    "@stylistic/no-extra-parens": "off"
 };
 
 module.exports = {
@@ -75,6 +95,7 @@ module.exports = {
             },
             extends: [
                 "eslint:all",
+                "plugin:@stylistic/all-extends",
                 "plugin:@typescript-eslint/all",
                 "plugin:react/all",
                 "plugin:react-hooks/recommended",
