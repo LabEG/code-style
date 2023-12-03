@@ -4,8 +4,7 @@
 !.editorconfig
 !.eslintrc.js
 !.remarkrc
-!.stylelintrc
+!.prettierrc
 !LICENSE
-!package-lock.json
 !package.json
 !README.md

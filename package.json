@@ -1,7 +1,6 @@
 {
     "name": "@labeg/code-style",
-    "version": "3.1.1",
-    "main": ".eslintrc.js",
+    "version": "3.1.2",
     "scripts": {
         "prepublishOnly": "npm version patch"
     },

@@ -15,7 +15,7 @@ npm i -D @labeg/code-style
 Далее в вашь файл eslint config необходимо добавить следующую строчку:
 ```Javascript
 module.exports = {
-    extends: ["@labeg/code-style"],
+    extends: ["./node_modules/@labeg/code-style/.eslintrc.js"],
     rules:{
         // override here
     }
