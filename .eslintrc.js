@@ -77,8 +77,7 @@ module.exports = {
     },
     ignorePatterns: ["node_modules/*"],
     rules: {
-        ...jsAndTsRules,
-        "no-duplicate-imports": "off", // Bug, conflict between TS import and import type
+        ...jsAndTsRules
     },
     overrides: [
         {
@@ -115,6 +114,8 @@ module.exports = {
             ],
             rules: {
                 ...jsAndTsRules,
+                "no-duplicate-imports": "off", // Bug, conflict between TS import and import type
+
                 "@typescript-eslint/no-inferrable-types": "off", // Need for reflection
                 "@typescript-eslint/no-magic-numbers": "off",
                 "@typescript-eslint/prefer-readonly-parameter-types": "off", // Wrong immutable undestand
