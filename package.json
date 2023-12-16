@@ -1,6 +1,6 @@
 {
     "name": "@labeg/code-style",
-    "version": "4.0.2",
+    "version": "4.0.3",
     "scripts": {
         "prepublishOnly": "npm version patch"
     },
