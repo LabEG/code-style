@@ -57,7 +57,8 @@ const jsAndTsRules = {
     "@stylistic/multiline-ternary": ["error", "always-multiline"], // More nice
     "@stylistic/array-element-newline": ["error", "consistent"], // More nice
     "@stylistic/operator-linebreak": ["error", "after"], // More nice
-    "@stylistic/no-extra-parens": "off"
+    "@stylistic/no-extra-parens": "off",
+    "@stylistic/dot-location": ["error", "property"] // Maybe later?
 };
 
 module.exports = {
