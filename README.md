@@ -1,5 +1,3 @@
-![David](https://img.shields.io/david/LabEG/code-style.svg)
-![David](https://img.shields.io/david/dev/LabEG/code-style.svg)
 ![GitHub](https://img.shields.io/github/license/LabEG/code-style.svg)
 
 

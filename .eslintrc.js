@@ -76,7 +76,8 @@ module.exports = {
     },
     ignorePatterns: ["node_modules/*"],
     rules: {
-        ...jsAndTsRules
+        ...jsAndTsRules,
+        "no-duplicate-imports": "off", // Bug, conflict between TS import and import type
     },
     overrides: [
         {
