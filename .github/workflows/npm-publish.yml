@@ -32,7 +32,7 @@ jobs:
       - run: git config --global user.email "labeg@mail.ru"
       - run: git config --global user.name "Eugene Labutin"
       - run: npm ci --force
-      - run: npm run release
+      - run: npm run prepare && npm run release
       - run: git push --follow-tags origin master && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
