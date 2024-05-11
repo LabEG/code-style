@@ -1,27 +1,35 @@
 {
     "name": "@labeg/code-style",
-    "version": "4.0.7",
-    "scripts": {
-        "prepublishOnly": "npm version patch"
-    },
+    "version": "4.0.8",
+    "author": "Eugene Labutin",
+    "license": "MIT",
+    "homepage": "https://github.com/LabEG/code-style#readme",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/LabEG/code-style.git"
     },
-    "author": "Evgeniy Labutin ",
-    "license": "MIT",
     "bugs": {
         "url": "https://github.com/LabEG/code-style/issues"
     },
-    "homepage": "https://github.com/LabEG/code-style#readme",
+    "scripts": {
+        "release": "standard-version",
+        "prepare": "husky install"
+    },
     "dependencies": {
-        "@typescript-eslint/eslint-plugin": "^7.7.0",
-        "@typescript-eslint/parser": "^7.7.0",
-        "eslint": "^9.1.0",
+        "@typescript-eslint/eslint-plugin": "^7.8.0",
+        "@typescript-eslint/parser": "^7.8.0",
+        "eslint": "^9.2.0",
         "eslint-plugin-jsx-a11y": "^6.8.0",
         "eslint-plugin-react": "^7.34.1",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "@stylistic/eslint-plugin": "^1.7.2",
-        "@stylistic/eslint-plugin-migrate": "^1.7.2"
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "@stylistic/eslint-plugin": "^2.1.0",
+        "@stylistic/eslint-plugin-migrate": "^2.1.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.3.0",
+        "@commitlint/config-conventional": "^19.2.2",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "standard-version": "^9.5.0"
     }
 }
