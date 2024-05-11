@@ -12,6 +12,9 @@ on:
     branches: [ master ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,6 +29,8 @@ jobs:
           node-version: 22
           registry-url: https://registry.npmjs.org/
 
+      - run: git config --global user.email "labeg@mail.ru"
+      - run: git config --global user.name "Eugene Labutin"
       - run: npm ci --force
       - run: npm run release
       - run: git push --follow-tags origin master && npm publish --access public
