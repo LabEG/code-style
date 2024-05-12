@@ -13,7 +13,7 @@
     },
     "lint-staged": {
       "./**/*.(ts|tsx|js|jsx)": [
-        "eslint --fix -c .eslintrc.cjs --ext .tsx,.ts,.jsx,.js"
+        "eslint --fix -c .eslintrc.js --ext .tsx,.ts,.jsx,.js"
       ]
     },
     "scripts": {
