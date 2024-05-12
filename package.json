@@ -1,6 +1,6 @@
 {
     "name": "@labeg/code-style",
-    "version": "4.0.11",
+    "version": "4.0.12",
     "author": "Eugene Labutin",
     "license": "MIT",
     "homepage": "https://github.com/LabEG/code-style#readme",
@@ -12,9 +12,9 @@
         "url": "https://github.com/LabEG/code-style/issues"
     },
     "lint-staged": {
-      "./**/*.(ts|tsx|js|jsx)": [
-        "eslint --fix -c .eslintrc.js --ext .tsx,.ts,.jsx,.js"
-      ]
+        "./**/*.(ts|tsx|js|jsx)": [
+            "eslint --fix -c .eslintrc.js --ext .tsx,.ts,.jsx,.js"
+        ]
     },
     "scripts": {
         "release": "standard-version",
