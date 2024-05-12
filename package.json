@@ -11,6 +11,11 @@
     "bugs": {
         "url": "https://github.com/LabEG/code-style/issues"
     },
+    "lint-staged": {
+      "./**/*.(ts|tsx|js|jsx)": [
+        "eslint --fix -c .eslintrc.cjs --ext .tsx,.ts,.jsx,.js"
+      ]
+    },
     "scripts": {
         "release": "standard-version",
         "prepare": "husky install"
