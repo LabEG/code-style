@@ -132,6 +132,7 @@ module.exports = {
                 "react/jsx-max-depth": ["error", {max: 10}], // To small by default
                 "react/function-component-definition": ["error", {namedComponents: "arrow-function"}], // Same as eslint func-styles
                 "react/forbid-component-props": "off", // Conflict with styled-components
+                "react/require-default-props": "off", // Don't used in modern react
                 "react/jsx-uses-react": "off", // https://ru.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
                 "react/react-in-jsx-scope": "off", // https://ru.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
             }
