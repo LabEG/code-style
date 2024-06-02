@@ -1,5 +1,15 @@
 # Changelog
 
+All notable changes to this project will be documented in this file.
+
+## [4.2.0] - 2024-06-02
+
+### 🚀 Features
+
+- Use cliff-jumper for generate changleogs and versions
+
+# Changelog
+
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ## 4.1.0 (2024-05-13)
