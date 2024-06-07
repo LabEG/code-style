@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.2.3] - 2024-06-07
+
+### 📚 Documentation
+
+- Regenerate changelog
+
 ## [4.2.2] - 2024-06-02
 
 ### 📚 Documentation
