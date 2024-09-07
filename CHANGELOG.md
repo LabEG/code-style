@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.0] - 2024-09-07
+
+### 🚀 Features
+
+- Update dependencies versions
+
 ## [4.2.3] - 2024-06-07
 
 ### 📚 Documentation
