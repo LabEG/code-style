@@ -109,7 +109,6 @@ module.exports = {
                 "plugin:@stylistic/all-extends",
                 "plugin:@typescript-eslint/all",
                 "plugin:react/all",
-                "plugin:react-hooks/recommended",
                 "plugin:jsx-a11y/strict"
             ],
             rules: {
