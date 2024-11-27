@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.6.0] - 2024-11-27
+
+### 🚀 Features
+
+- Remove react-hooks plugin from config
+
 ## [4.5.0] - 2024-11-27
 
 ### 🚀 Features
