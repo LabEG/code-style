@@ -1,5 +1,5 @@
 ﻿[*]
-end_of_line = crlf
+end_of_line = lf
 charset = utf-8
 
 # Code files
@@ -57,7 +57,7 @@ dotnet_style_qualification_for_field = false:suggestion
 dotnet_style_qualification_for_property = false:suggestion
 dotnet_style_qualification_for_method = false:suggestion
 dotnet_style_qualification_for_event = false:suggestion
-dotnet_style_require_accessibility_modifiers = never:suggestion	
+dotnet_style_require_accessibility_modifiers = never:suggestion
 
 dotnet_naming_style.pascal.capitalization = pascal_case
 
@@ -69,7 +69,7 @@ dotnet_naming_style.type_parameters.required_prefix = T
 dotnet_naming_style.interfaces.capitalization = pascal_case
 dotnet_naming_style.interfaces.required_prefix = I
 
-dotnet_naming_style.underscore.capitalization = camel_case 
+dotnet_naming_style.underscore.capitalization = camel_case
 dotnet_naming_style.underscore.required_prefix = _
 
 dotnet_naming_symbols.defaults.applicable_accessibilities = *

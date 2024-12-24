@@ -1,10 +1,11 @@
 {
     "name": "@labeg/code-style",
-    "version": "4.6.0",
+    "version": "5.0.0",
     "author": "Eugene Labutin",
     "license": "MIT",
     "homepage": "https://github.com/LabEG/code-style#readme",
     "description": "Code styles rules for difference linters, for create best code quality",
+    "type": "module",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/LabEG/code-style.git"
@@ -13,29 +14,36 @@
         "url": "https://github.com/LabEG/code-style/issues"
     },
     "lint-staged": {
-        "./tests/**/*.(ts|tsx|js|jsx)": [
+        "./testss/**/*.(ts|tsx|js|jsx)": [
             "eslint --fix -c .eslintrc.js --ext .tsx,.ts,.jsx,.js"
         ]
     },
     "scripts": {
+        "test": "eslint tests/**",
         "release": "cliff-jumper --name '@labeg/code-style' --package-path '.' --no-skip-changelog --no-skip-tag",
         "prepare": "husky install"
     },
+    "peerDependencies": {
+        "typescript": ">=5.0.0"
+    },
     "dependencies": {
+        "@eslint/js": "^9.17.0",
+        "@stylistic/eslint-plugin": "^2.11.0",
+        "@stylistic/eslint-plugin-migrate": "^2.11.0",
         "@typescript-eslint/eslint-plugin": "^8.16.0",
         "@typescript-eslint/parser": "^8.16.0",
         "eslint": "^9.15.0",
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-react": "^7.37.2",
-        "@stylistic/eslint-plugin": "^2.11.0",
-        "@stylistic/eslint-plugin-migrate": "^2.11.0"
+        "typescript-eslint": "^8.18.2"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.6.0",
         "@commitlint/config-conventional": "^19.6.0",
+        "@favware/cliff-jumper": "^5.0.0",
         "husky": "^9.1.7",
-        "lint-staged": "^15.2.10",
-        "@favware/cliff-jumper": "^5.0.0"
+        "typescript": "^5.7.2",
+        "lint-staged": "^15.2.10"
     },
     "keywords": [
         "code style",
