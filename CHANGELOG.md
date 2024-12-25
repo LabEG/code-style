@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.2.0] - 2024-12-25
+
+### 🚀 Features
+
+- Flat config add support js files
+
 ## [5.1.0] - 2024-12-24
 
 ### 🚀 Features
