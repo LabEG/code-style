@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.1.0] - 2024-12-24
+
+### 🚀 Features
+
+- Initilize support eslint 9 flat config
+
 ## [4.6.0] - 2024-11-27
 
 ### 🚀 Features
