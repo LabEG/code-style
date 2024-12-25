@@ -14,8 +14,8 @@
         "url": "https://github.com/LabEG/code-style/issues"
     },
     "lint-staged": {
-        "./testss/**/*.(ts|tsx|js|jsx)": [
-            "eslint --fix -c .eslintrc.js --ext .tsx,.ts,.jsx,.js"
+        "./tests/**/*.(ts|tsx|js|jsx)": [
+            "eslint tests/**"
         ]
     },
     "scripts": {
@@ -24,6 +24,7 @@
         "prepare": "husky install"
     },
     "peerDependencies": {
+        "react": ">=15.0.0",
         "typescript": ">=5.0.0"
     },
     "dependencies": {
@@ -41,9 +42,11 @@
         "@commitlint/cli": "^19.6.0",
         "@commitlint/config-conventional": "^19.6.0",
         "@favware/cliff-jumper": "^5.0.0",
+        "@types/react": "^19.0.2",
         "husky": "^9.1.7",
-        "typescript": "^5.7.2",
-        "lint-staged": "^15.2.10"
+        "lint-staged": "^15.2.10",
+        "react": "^19.0.0",
+        "typescript": "^5.7.2"
     },
     "keywords": [
         "code style",
