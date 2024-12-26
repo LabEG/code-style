@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.3.2] - 2024-12-26
+
+### 🐛 Bug Fixes
+
+- Add main file to package.json
+
 ## [5.3.1] - 2024-12-26
 
 ### 🐛 Bug Fixes
