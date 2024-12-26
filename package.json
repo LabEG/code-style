@@ -6,6 +6,7 @@
     "homepage": "https://github.com/LabEG/code-style#readme",
     "description": "Code styles rules for difference linters, for create best code quality",
     "type": "module",
+    "main": "eslint.config.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/LabEG/code-style.git"
