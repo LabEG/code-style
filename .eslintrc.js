@@ -1,5 +1,3 @@
-"use strict"
-
 /**
  * Good instruction:
  * https://duncanleung.com/eslint-mixed-javascript-typescript-files-codebase/
@@ -63,12 +61,10 @@ const jsAndTsRules = {
 
 module.exports = {
     extends: [
-        "eslint:all", // There is no React because they are used strictly with Typescript.
+        "eslint:all" // There is no React because they are used strictly with Typescript.
         // "plugin:@stylistic/all-extends" // Bug, begin incorrect formatting, check in new versions
     ],
-    plugins: [
-        "@stylistic/migrate"
-    ],
+    plugins: ["@stylistic/migrate"],
     root: true,
     env: {
         browser: true,
@@ -133,7 +129,7 @@ module.exports = {
                 "react/forbid-component-props": "off", // Conflict with styled-components
                 "react/require-default-props": "off", // Don't used in modern react
                 "react/jsx-uses-react": "off", // https://ru.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
-                "react/react-in-jsx-scope": "off", // https://ru.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+                "react/react-in-jsx-scope": "off" // https://ru.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
             }
         }
     ]

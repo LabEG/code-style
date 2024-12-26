@@ -6,6 +6,7 @@ import reactPlugin from "eslint-plugin-react";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import globals from "globals";
 
+/** @type {import("eslint").Linter.Config} */
 export default tseslint.config(
     js.configs.all,
     {
@@ -62,7 +63,7 @@ export default tseslint.config(
             }
         },
         rules: {
-            "react/jsx-filename-extension": ["error", {extensions: [".tsx"]}], // Added typescript file extension
+            "react/jsx-filename-extension": ["error", {extensions: [".jsx", ".tsx"]}], // Added typescript file extension
             "react/jsx-no-literals": "off", // Broken rule, not work with ??
             "react/jsx-max-depth": ["error", {max: 10}], // To small by default
             "react/function-component-definition": ["error", {namedComponents: "arrow-function"}], // Same as eslint func-styles
@@ -89,6 +90,7 @@ export default tseslint.config(
             parserOptions: {
                 projectService: true,
                 tsconfigRootDir: import.meta.dirname,
+                ecmaVersion: "latest",
                 ecmaFeatures: {
                     jsx: true
                 }
