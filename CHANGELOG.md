@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.3.1] - 2024-12-26
+
+### 🐛 Bug Fixes
+
+- Publich eslint 9 config
+
 ## [5.3.0] - 2024-12-26
 
 ### 🚀 Features
