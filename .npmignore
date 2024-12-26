@@ -3,6 +3,7 @@
 *
 !.editorconfig
 !.eslintrc.js
+!.eslint.config.js
 !.remarkrc
 !.prettierrc
 !LICENSE
