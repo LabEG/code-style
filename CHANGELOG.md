@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.4.0] - 2024-12-30
+
+### 🚀 Features
+
+- New realization eslint 9 config
+- Add react hook plugin for eslint 9 only config
+- Separate typescript-eslint to simple linter and extended language service part
+
 ## [5.3.3] - 2024-12-30
 
 ### 🐛 Bug Fixes
