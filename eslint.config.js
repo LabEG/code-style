@@ -18,10 +18,11 @@ export default [
     {ignores: ["**/node_modules/**", "dist/"]},
 
     // THE IGNORES IS APPLIED ALSO TO THESE FOLLOWING CONFIGS
-    {files: ["**/*.{js,jsx,tsx}"]},
+    {files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"]},
 
-    // Rules for JavaScript
     js.configs.all,
+    ...tseslint.configs.strict,
+    ...tseslint.configs.stylistic,
     stylistic.configs["all-flat"],
     reactPlugin.configs.flat.all,
     jsxA11y.flatConfigs.strict,
@@ -33,12 +34,11 @@ export default [
         rules: reactHooks.configs.recommended.rules,
     },
 
-    // Rules for Typescript
     ...tseslint.config({
         files: ["**/*.ts"],
         extends: [
-            js.configs.all,
-            ...tseslint.configs.all
+            ...tseslint.configs.strictTypeCheckedOnly,
+            ...tseslint.configs.stylisticTypeCheckedOnly
         ],
         languageOptions: {
             parser: tseslint.parser,
@@ -46,9 +46,6 @@ export default [
                 projectService: true,
                 tsconfigRootDir: import.meta.dirname
             }
-        },
-        plugins: {
-            // 'react-hooks': reactHooks,
         },
         rules: {
             "@typescript-eslint/no-inferrable-types": "off", // Need for reflection
