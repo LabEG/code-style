@@ -8,7 +8,11 @@ import globals from "globals";
 
 /** @type {import("eslint").Linter.Config} */
 export default tseslint.config(
-    js.configs.all,
+    {ignores: ["**/node_modules/**", "dist/"]},
+    {
+        files: ["**/*.{js}"],
+        extends: [js.configs.all]
+    },
     {
         files: ["**/*.{ts}"], // ,tsx
         extends: [
