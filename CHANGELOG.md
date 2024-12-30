@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.5.0] - 2024-12-30
+
+### 🚀 Features
+
+- Disable no-magic-numbers rule in eslint 9 config
+
 ## [5.4.0] - 2024-12-30
 
 ### 🚀 Features
