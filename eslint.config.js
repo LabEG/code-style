@@ -3,6 +3,7 @@ import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
 import reactPlugin from "eslint-plugin-react";
+import reactHooks from 'eslint-plugin-react-hooks';
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import globals from "globals";
 
@@ -25,6 +26,13 @@ export default [
     reactPlugin.configs.flat.all,
     jsxA11y.flatConfigs.strict,
 
+    { // don't support flat config yet
+        plugins: {
+          "react-hooks": reactHooks,
+        },
+        rules: reactHooks.configs.recommended.rules,
+    },
+
     // Rules for Typescript
     ...tseslint.config({
         files: ["**/*.ts"],
@@ -36,11 +44,7 @@ export default [
             parser: tseslint.parser,
             parserOptions: {
                 projectService: true,
-                tsconfigRootDir: import.meta.dirname,
-                ecmaVersion: "latest",
-                ecmaFeatures: {
-                    jsx: true
-                }
+                tsconfigRootDir: import.meta.dirname
             }
         },
         plugins: {
