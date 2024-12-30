@@ -3,7 +3,7 @@ import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
 import reactPlugin from "eslint-plugin-react";
-import reactHooks from 'eslint-plugin-react-hooks';
+import reactHooks from "eslint-plugin-react-hooks";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import globals from "globals";
 
@@ -27,11 +27,11 @@ export default [
     reactPlugin.configs.flat.all,
     jsxA11y.flatConfigs.strict,
 
-    { // don't support flat config yet
+    { // Don't support flat config yet
         plugins: {
-          "react-hooks": reactHooks,
+            "react-hooks": reactHooks
         },
-        rules: reactHooks.configs.recommended.rules,
+        rules: reactHooks.configs.recommended.rules
     },
 
     ...tseslint.config({
@@ -80,6 +80,7 @@ export default [
             /**
              * Eslint rules
              */
+            "no-magic-numbers": "off", // Conflict with void 0
             "sort-imports": "off", // Need found sorter
             "sort-keys": "off", // More nice
             "one-var": ["error", "never"], // More nice
