@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.3.3] - 2024-12-30
+
+### 🐛 Bug Fixes
+
+- Default ignores for eslint 9
+
 ## [5.3.2] - 2024-12-26
 
 ### 🐛 Bug Fixes
