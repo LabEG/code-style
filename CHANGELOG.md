@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.0] - 2025-01-03
+
+### 🚀 Features
+
+- [**breaking**] Drop support eslint 8 config
+
 ## [5.5.0] - 2024-12-30
 
 ### 🚀 Features
