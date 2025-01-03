@@ -4,7 +4,7 @@ import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
 import reactPlugin from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import jsxA11y from "eslint-plugin-jsx-a11y";
+// Import jsxA11y from "eslint-plugin-jsx-a11y";
 import globals from "globals";
 
 /**
@@ -15,7 +15,7 @@ import globals from "globals";
 /** @type {import("eslint").Linter.Config} */
 export default [
     // DO NOT PUT OTHER PROPS IN THIS OBJECT
-    {ignores: ["**/node_modules/**", "dist/"]},
+    {ignores: ["**/node_modules/**", "**/dist/**"]},
 
     // THE IGNORES IS APPLIED ALSO TO THESE FOLLOWING CONFIGS
     {files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"]},
@@ -25,7 +25,13 @@ export default [
     ...tseslint.configs.stylistic,
     stylistic.configs["all-flat"],
     reactPlugin.configs.flat.all,
-    jsxA11y.flatConfigs.strict,
+
+    /*
+     * Have conflict with next.js:
+     * Config "jsx-a11y/strict": Key "plugins": Cannot redefine plugin "jsx-a11y".
+     * Try uncomment in next version
+     */
+    // JsxA11y.flatConfigs.strict,
 
     { // Don't support flat config yet
         plugins: {
