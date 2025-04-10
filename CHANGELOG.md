@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.3.0] - 2025-04-10
+
+### 🚀 Features
+
+- Update dependencies versions
+
 ## [6.2.0] - 2025-03-25
 
 ### 🚀 Features
