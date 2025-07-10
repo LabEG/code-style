@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.4.0] - 2025-07-10
+
+### 🚀 Features
+
+- *(tests)* Add comprehensive linter test file with various problematic patterns
+
+### ⚙️ Miscellaneous Tasks
+
+- Update dependencies and devDependencies to latest versions
+
 ## [6.3.1] - 2025-04-10
 
 ### 📚 Documentation
