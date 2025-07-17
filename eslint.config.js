@@ -141,6 +141,7 @@ export default [
             "@stylistic/operator-linebreak": ["error", "after"], // More nice
             "@stylistic/no-extra-parens": "off",
             "@stylistic/dot-location": ["error", "property"], // Maybe later?
+            "@stylistic/indent-binary-ops": ["error", 4], // Other indends in stylistic 4
 
             /**
              * React rules
