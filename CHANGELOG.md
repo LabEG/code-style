@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.4.1] - 2025-07-17
+
+### 🐛 Bug Fixes
+
+- *(eslint)* Update stylistic configuration to use 'all' instead of 'all-flat'
+
 ## [6.4.0] - 2025-07-10
 
 ### 🚀 Features
