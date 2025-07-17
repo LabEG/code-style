@@ -23,7 +23,7 @@ export default [
     js.configs.all,
     ...tseslint.configs.strict,
     ...tseslint.configs.stylistic,
-    stylistic.configs["all-flat"],
+    stylistic.configs.all,
     reactPlugin.configs.flat.all,
 
     /*
