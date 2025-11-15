@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.5.0] - 2025-07-17
+
+### 🚀 Features
+
+- *(eslint)* Add indent-binary-ops rule with 4 spaces configuration
+
 ## [6.4.1] - 2025-07-17
 
 ### 🐛 Bug Fixes
