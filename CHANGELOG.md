@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.7.1] - 2025-11-15
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Bump actions/setup-node from 4 to 6
+- *(deps)* Bump actions/checkout from 4 to 5
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.7.0] - 2025-11-15
 
 ### 🚀 Features
