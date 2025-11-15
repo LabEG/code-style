@@ -4,6 +4,7 @@
 /* eslint-disable max-statements */
 /* eslint-disable max-lines */
 /* eslint-disable react/no-multi-comp */
+/* eslint-disable react-hooks/purity */
 /**
  * COMPREHENSIVE LINTER TEST FILE
  * This file intentionally contains various problematic patterns to test ESLint rules

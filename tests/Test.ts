@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable max-classes-per-file */
+/* eslint-disable preserve-caught-error */
 /**
  * Complex Test file for TypeScript ESLint rules
  * This file contains various TypeScript patterns to test different linting scenarios

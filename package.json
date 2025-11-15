@@ -22,34 +22,34 @@
     "scripts": {
         "test": "eslint tests/**",
         "release": "cliff-jumper --name '@labeg/code-style' --package-path '.' --no-skip-changelog --no-skip-tag",
-        "prepare": "husky install"
+        "prepare": "husky"
     },
     "peerDependencies": {
         "react": ">=15.0.0",
         "typescript": ">=5.0.0"
     },
     "dependencies": {
-        "@eslint/js": "^9.30.1",
-        "@stylistic/eslint-plugin": "^5.1.0",
+        "@eslint/js": "^9.39.1",
+        "@stylistic/eslint-plugin": "^5.5.0",
         "@stylistic/eslint-plugin-migrate": "^4.4.1",
-        "@typescript-eslint/eslint-plugin": "^8.36.0",
-        "@typescript-eslint/parser": "^8.36.0",
-        "eslint": "^9.30.1",
+        "@typescript-eslint/eslint-plugin": "^8.46.4",
+        "@typescript-eslint/parser": "^8.46.4",
+        "eslint": "^9.39.1",
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-react": "^7.37.5",
-        "eslint-plugin-react-hooks": "^5.2.0",
-        "globals": "^16.3.0",
-        "typescript-eslint": "^8.36.0"
+        "eslint-plugin-react-hooks": "^7.0.1",
+        "globals": "^16.5.0",
+        "typescript-eslint": "^8.46.4"
     },
     "devDependencies": {
-        "@commitlint/cli": "^19.8.1",
-        "@commitlint/config-conventional": "^19.8.1",
+        "@commitlint/cli": "^20.1.0",
+        "@commitlint/config-conventional": "^20.0.0",
         "@favware/cliff-jumper": "^6.0.0",
-        "@types/react": "^19.1.8",
+        "@types/react": "^19.2.5",
         "husky": "^9.1.7",
-        "lint-staged": "^16.1.2",
-        "react": "^19.1.0",
-        "typescript": "^5.8.3"
+        "lint-staged": "^16.2.6",
+        "react": "^19.2.0",
+        "typescript": "^5.9.3"
     },
     "keywords": [
         "code style",

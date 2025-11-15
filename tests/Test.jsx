@@ -140,7 +140,7 @@ const ComplexComponent = ({
                 return true;
             }
             return item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-              item.description.toLowerCase().includes(searchTerm.toLowerCase());
+                item.description.toLowerCase().includes(searchTerm.toLowerCase());
         })
         .sort((itemA, itemB) => {
             if (itemA.priority !== itemB.priority) {
