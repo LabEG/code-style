@@ -2,10 +2,11 @@
 
 *
 !.editorconfig
-!.eslintrc.js
 !eslint.config.js
 !.remarkrc
 !.prettierrc
 !LICENSE
 !package.json
 !README.md
+!SECURITY.md
+!CHANGELOG.md
