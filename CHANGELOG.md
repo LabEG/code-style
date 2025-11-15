@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.5.1] - 2025-11-15
+
+### ⚙️ Miscellaneous Tasks
+
+- Update dependencies and improve ESLint configurations
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.5.0] - 2025-07-17
 
 ### 🚀 Features
