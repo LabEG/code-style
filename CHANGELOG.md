@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.0] - 2025-11-15
+
+### 🚀 Features
+
+- Add issue templates for bug reports and feature requests, enhance contributing guidelines
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.9.0] - 2025-11-15
 
 ### 🚀 Features
