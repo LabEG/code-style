@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.6.0] - 2025-11-15
+
+### 🚀 Features
+
+- Update .npmignore to include SECURITY.md and CHANGELOG.md
+- Enhance CI workflows with NPM publish and pull request testing
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.5.1] - 2025-11-15
 
 ### ⚙️ Miscellaneous Tasks
