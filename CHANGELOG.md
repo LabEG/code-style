@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.1] - 2025-11-15
+
+### ⚙️ Miscellaneous Tasks
+
+- Remove .npmignore file
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.0] - 2025-11-15
 
 ### 🚀 Features
