@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.7.0] - 2025-11-15
+
+### 🚀 Features
+
+- Add dependabot configuration for NPM and GitHub Actions updates
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.6.0] - 2025-11-15
 
 ### 🚀 Features
