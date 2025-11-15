@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.8.0] - 2025-11-15
+
+### 🚀 Features
+
+- Add Dependabot auto-merge workflow
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.7.1] - 2025-11-15
 
 ### ⚙️ Miscellaneous Tasks
