@@ -1,135 +1,138 @@
 # CodeStyle
 
+![npm version](https://img.shields.io/npm/v/@labeg/code-style.svg)
+![npm downloads](https://img.shields.io/npm/dm/@labeg/code-style.svg)
 ![GitHub](https://img.shields.io/github/license/LabEG/code-style.svg)
+![build status](https://github.com/LabEG/code-style/workflows/Test%20Pull%20Request/badge.svg)
 
-В этом репозитории я собираю файлы стилей для облегчения синхронизации между проектами.
+Comprehensive ESLint configuration for TypeScript and React projects with strict code quality rules.
 
-## Подключение
+## Features
 
-Для подключения необходимо установить пакет командой:
+- ✅ **ESLint 9+** with flat config format
+- ✅ **TypeScript** support with strict rules
+- ✅ **React 19+** and React Hooks best practices
+- ✅ **Accessibility** checks (jsx-a11y)
+- ✅ **Code style** enforcement (@stylistic)
+- ✅ **Modern JavaScript** standards
 
-```Bash
-npm i -D @labeg/code-style
+## Installation
+
+Install the package as a dev dependency:
+
+```bash
+npm install -D @labeg/code-style
 ```
 
-Далее в ваш файл eslint config необходимо добавить следующую строку:
+## Usage
 
-```Javascript
-module.exports = {
-    extends: ["./node_modules/@labeg/code-style/.eslintrc.js"],
-    rules:{
-        // Override here
+### ESLint 9+ (Flat Config)
+
+Create or update your `eslint.config.js`:
+
+```javascript
+import codeStyle from "@labeg/code-style";
+
+export default [
+    ...codeStyle,
+    {
+        // Your custom overrides
+        rules: {
+            // Override specific rules here
+        }
     }
-};
+];
 ```
 
-Версия для NextJS:
+### Next.js Projects
 
-```Javascript
-module.exports = {
-    extends: ["next/core-web-vitals", "./node_modules/@labeg/code-style/.eslintrc.js"],
-    rules: {
-        // Override here
+```javascript
+import codeStyle from "@labeg/code-style";
+
+export default [
+    ...codeStyle,
+    {
+        rules: {
+            // Next.js specific overrides
+            "react/react-in-jsx-scope": "off"
+        }
     }
-};
+];
 ```
 
-## Рекомендации
+### TypeScript Projects
 
-### Не заканчивать строку ничем
+The configuration automatically works with TypeScript files (`.ts`, `.tsx`). Make sure you have `typescript` installed:
 
-Строка всегда должна заканчиваться знаком конца строки или оператором, например ; или +. Делается это для того, чтобы, глядя всего на одну строку, знать, есть ли у команды продолжение на следующей строке или нет. Тем самым для понимания надо прочитать всего одну строку вместо двух, что экономит время. А отсутствие ; в конце команды может привести к ошибкам исполнения.
+```bash
+npm install -D typescript
+```
 
-```Typescript
-/**
- *  Оператор в конце строки
- */
 
-// Плохо. Глядя на первую строку, не понятно, это конец команды или надо искать продолжение
+## Code Style Philosophy
+
+### Always End Lines with Operators or Semicolons
+
+Lines should always end with an operator or semicolon to make it clear whether the statement continues. This saves reading time and prevents execution errors.
+
+```typescript
+// Bad - unclear if statement continues
 let sample = sample.sample.sample
                  + sample.sample.sample;
 
-// Хорошо. Глядя на первую строку, видно, что команда не заканчивается, и стоит искать продолжение на следующей
+// Good - operator at end shows continuation
 let sample = sample.sample.sample +
                  sample.sample.sample;
-
-/**
- * Знак конца строки
- */
-
-// Плохо. Выведет 2,2, хотя ожидается 0,2
-var a = 1, b = 0
-if(a>b) a=b
--b > 0 ? b=1 : b=2;
-alert([a,b])
-
-// Плохо, выдаст ошибку исполнения
-var i,s
-s="here is a string"
-i=0
-/[a-z]/g.exec(s)
-
 ```
 
-### Фигурные скобки в if
+### Always Use Braces for If Statements
 
-Даже если после блока if идет всего одна команда, фигурные скобки все равно ставить обязательно.
-Во-первых, вы сэкономите время себе же в будущем, когда понадобится срочно дополнить условие.
-Во-вторых, очень часто люди не замечают, что строка относится к условию if, и при рефакторинге или удалении строки забывают про if, из-за чего if начинает влиять на другую строку кода.
+Even for single-line statements, always use braces. This prevents bugs during refactoring and improves code clarity.
 
-```Typescript
-// Плохо
-if (n > 10) alert("Плохо");
+```typescript
+// Bad
+if (n > 10) alert("Bad");
 
-// Плохо
-if (n > 10)
-    alert("Плохо");
-
-// Хорошо
+// Good
 if (n > 10) {
-    alert("Хорошо");
+    alert("Good");
 }
 ```
 
-### Используйте двойные кавычки
+### Use Double Quotes and Template Literals
 
-Изначально в более взрослых языках используются " для написания строк, в JS для более простого экранирования было принято писать '. Так было проще для JS-разработчиков. Но теперь существуют шаблонные строки, которые справляются с этой задачей намного лучше. К тому же коллегам с бэкенда будет проще понимать ваш код в случае необходимости.
+Use double quotes for consistency with other languages, and template literals for string interpolation.
 
-```Typescript
-const message = "булочек";
+```typescript
+const message = "rolls";
 const count = 5;
 
-// Плохо
-const data = 'Отправляю "бабушке" ' + count * 5 + ' ' + message + '.';
+// Bad
+const data = 'Sending "grandma" ' + count * 5 + ' ' + message + '.';
 
-// Хорошо
-const data = `Отправляю "бабушке" ${count * 5} ${message}.`;
+// Good
+const data = `Sending "grandma" ${count * 5} ${message}.`;
 ```
 
-### Длина строки 120 символов и отступ 4 пробела
+### Line Length: 120 Characters, Indent: 4 Spaces
 
-У всех разработчиков разные мониторы: у кого-то большие, у кого-то маленькие, а кто-то вообще через консоль работает. Поэтому оптимальным размером строки является 120 символов. А использование 4 пробелов для отступа является оптимальным решением для определения уровня вложенности. Некоторые предпочитают использовать 2 пробела для того, чтобы на одну строку больше влезло, но это является плохой практикой, т.к. увеличивает нагрузку на глаза при определении уровня вложенности. Вместо того чтобы впихивать на одну строку больше кода, лучше использовать более удачное форматирование, например, писать более простые функции и использовать "функциональный" стиль для цепочек методов объекта.
+Optimal line length is 120 characters for readability across different monitors. Use 4-space indentation for clear nesting levels.
 
-Для вдохновения предлагаю взглянуть на [ядро Linux](https://github.com/torvalds/linux/blob/master/kernel/acct.c). Посмотрите, как просто написан такой огромный и сложный продукт, а длина строки всего 80 символов.
+## Security
 
-```Typescript
-export class Tabs extends Base {
-    // ...
-    private onTabClick(tab: Tab): void {
+For security concerns, please see our [Security Policy](./SECURITY.md).
 
-        if (tab.active) {
+## Contributing
 
-            if (!this._slotElement
-                    .assignedNodes()
-                    .some((node: Node) => node instanceof Tab && node.active === true)) {
+Contributions are welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
-                const offset = tab.offsetLeft - tab.parentElement!.offsetLeft;
-                const width = tab.offsetWidth;
-                this._lineElement.style.marginLeft = `${offset + width / 2}px`;
-                this._lineElement.style.width = `0`;
+## License
 
-            }
-        }
-    }
-}
-```
+MIT © Eugene Labutin
+
+## Links
+
+- [npm package](https://www.npmjs.com/package/@labeg/code-style)
+- [GitHub repository](https://github.com/LabEG/code-style)
+- [Issue tracker](https://github.com/LabEG/code-style/issues)
+- [Changelog](./CHANGELOG.md)

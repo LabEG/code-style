@@ -7,6 +7,27 @@
     "description": "Code styles rules for difference linters, for create best code quality",
     "type": "module",
     "main": "eslint.config.js",
+    "exports": {
+        ".": {
+            "import": "./eslint.config.js",
+            "require": "./eslint.config.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "eslint.config.js",
+        ".editorconfig",
+        ".remarkrc",
+        ".prettierrc",
+        "LICENSE",
+        "README.md",
+        "SECURITY.md",
+        "CHANGELOG.md"
+    ],
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/LabEG/code-style.git"
