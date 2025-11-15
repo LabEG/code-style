@@ -1,0 +1,50 @@
+version: 2
+updates:
+  # NPM dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    groups:
+      eslint-plugins:
+        patterns:
+          - "eslint*"
+          - "@typescript-eslint/*"
+          - "@stylistic/*"
+      react-ecosystem:
+        patterns:
+          - "react*"
+          - "@types/react"
+      development-dependencies:
+        dependency-type: "development"
+        exclude-patterns:
+          - "eslint*"
+          - "react*"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "npm"
+    assignees:
+      - "LabEG"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    assignees:
+      - "LabEG"
