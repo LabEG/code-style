@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.2] - 2025-11-17
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Bump actions/checkout from 4 to 5 (#10)
+- *(deps)* Bump lewagon/wait-on-check-action from 1.3.4 to 1.4.1
+- *(deps)* Bump lewagon/wait-on-check-action from 1.3.4 to 1.4.1
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.1] - 2025-11-15
 
 ### ⚙️ Miscellaneous Tasks
