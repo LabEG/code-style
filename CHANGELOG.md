@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.3] - 2025-11-17
+
+### ⚙️ Miscellaneous Tasks
+
+- Update dependabot auto-merge workflow to include metadata fetching and separate approval step
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.2] - 2025-11-17
 
 ### ⚙️ Miscellaneous Tasks
