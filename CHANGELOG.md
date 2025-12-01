@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.5] - 2025-12-01
+
+### ⚙️ Miscellaneous Tasks
+
+- Update dependabot configuration and enhance README with ESLint plugins
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.4] - 2025-12-01
 
 ### ⚙️ Miscellaneous Tasks
