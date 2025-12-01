@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.6] - 2025-12-01
+
+### ⚙️ Miscellaneous Tasks
+
+- Add scheduled cron job for NPM publish workflow
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.5] - 2025-12-01
 
 ### ⚙️ Miscellaneous Tasks
