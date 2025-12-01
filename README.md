@@ -16,6 +16,17 @@ Comprehensive ESLint configuration for TypeScript and React projects with strict
 - ✅ **Code style** enforcement (@stylistic)
 - ✅ **Modern JavaScript** standards
 
+## Included Plugins
+
+This configuration includes and configures the following ESLint plugins:
+
+- **[@eslint/js](https://www.npmjs.com/package/@eslint/js)** - Core ESLint JavaScript rules
+- **[typescript-eslint](https://typescript-eslint.io/)** - TypeScript-specific linting rules
+- **[@stylistic/eslint-plugin](https://eslint.style/)** - Code formatting and style rules
+- **[eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)** - React-specific linting rules
+- **[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)** - Rules for React Hooks
+- **[eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)** - Accessibility rules for JSX (commented out, see config)
+
 ## Installation
 
 Install the package as a dev dependency:
