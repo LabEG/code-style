@@ -8,6 +8,8 @@ name: NPM Publish
 on:
   push:
     branches: [ master ]
+  schedule:
+    - cron: '0 12 * * 1'  # Every Monday at 12:00 UTC (3 hours after Dependabot runs at 09:00)
   workflow_dispatch:
 
 permissions:
