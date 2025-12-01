@@ -29,7 +29,6 @@ updates:
       include: "scope"
     labels:
       - "dependencies"
-      - "npm"
     assignees:
       - "LabEG"
 
@@ -45,6 +44,5 @@ updates:
       include: "scope"
     labels:
       - "dependencies"
-      - "github-actions"
     assignees:
       - "LabEG"
