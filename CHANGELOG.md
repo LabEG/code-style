@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.4] - 2025-12-01
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Bump actions/checkout from 5 to 6 (#16)
+- Remove unnecessary labels from dependabot configuration
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.3] - 2025-11-17
 
 ### ⚙️ Miscellaneous Tasks
