@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.7] - 2025-12-06
+
+### ⚙️ Miscellaneous Tasks
+
+- Update Next.js usage example to include core web vitals
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.6] - 2025-12-01
 
 ### ⚙️ Miscellaneous Tasks
