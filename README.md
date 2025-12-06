@@ -58,9 +58,11 @@ export default [
 ### Next.js Projects
 
 ```javascript
+import nextVitals from "eslint-config-next/core-web-vitals";
 import codeStyle from "@labeg/code-style";
 
 export default [
+    ...nextVitals,
     ...codeStyle,
     {
         rules: {
