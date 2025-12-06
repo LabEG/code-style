@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.10] - 2025-12-06
+
+### ⚙️ Miscellaneous Tasks
+
+- Add NODE_AUTH_TOKEN environment variable for NPM publish
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.9] - 2025-12-06
 
 ### ⚙️ Miscellaneous Tasks
