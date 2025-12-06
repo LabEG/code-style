@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.8] - 2025-12-06
+
+### ⚙️ Miscellaneous Tasks
+
+- Update NPM publish workflow to include provenance flag
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.7] - 2025-12-06
 
 ### ⚙️ Miscellaneous Tasks
