@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.11] - 2025-12-07
+
+### ⚙️ Miscellaneous Tasks
+
+- Remove NODE_AUTH_TOKEN from NPM publish workflow
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.10] - 2025-12-06
 
 ### ⚙️ Miscellaneous Tasks
