@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.12] - 2025-12-07
+
+### 📚 Documentation
+
+- Add CodeQL badge to README
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.11] - 2025-12-07
 
 ### ⚙️ Miscellaneous Tasks
