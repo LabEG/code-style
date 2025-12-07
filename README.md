@@ -4,6 +4,8 @@
 ![npm downloads](https://img.shields.io/npm/dm/@labeg/code-style.svg)
 ![GitHub](https://img.shields.io/github/license/LabEG/code-style.svg)
 ![build status](https://github.com/LabEG/code-style/workflows/Test%20Pull%20Request/badge.svg)
+[![CodeQL](https://github.com/LabEG/code-style/workflows/CodeQL%20Advanced/badge.svg)](https://github.com/LabEG/code-style/security/code-scanning)
+
 
 Comprehensive ESLint configuration for TypeScript and React projects with strict code quality rules.
 
