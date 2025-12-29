@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.16] - 2025-12-29
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.15] - 2025-12-22
 
 # Changelog
