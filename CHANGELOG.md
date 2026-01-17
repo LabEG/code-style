@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.19] - 2026-01-17
+
+### ⚙️ Miscellaneous Tasks
+
+- Update cron schedule for quarterly NPM publish
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 ## [6.10.18] - 2026-01-12
 
 # Changelog
