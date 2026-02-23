@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.20] - 2026-02-23
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#30)
+- *(deps-dev)* Bump the development-dependencies group with 2 updates (#31)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#32)
+- *(deps)* Bump globals from 16.5.0 to 17.1.0 (#33)
+- *(deps)* Bump lewagon/wait-on-check-action from 1.4.1 to 1.5.0 (#34)
+- *(deps)* Bump the all-minor-patch group with 2 updates (#35)
+- *(deps-dev)* Bump the react-ecosystem group with 2 updates (#36)
+- *(deps)* Bump @stylistic/eslint-plugin in the eslint-plugins group (#37)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#38)
+- *(deps-dev)* Bump @types/react in the react-ecosystem group (#39)
+- *(config)* Update cliff.toml configuration for changelog generation
+- *(deps-dev)* Bump ajv from 6.12.6 to 6.14.0 (#40)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#41)
+
 ## [6.10.19] - 2026-01-17
 
 ### ⚙️ Miscellaneous Tasks
