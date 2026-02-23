@@ -6,47 +6,54 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Miscellaneous Tasks
 
-- Update cron schedule for quarterly NPM publish
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.19
 
 ## [6.10.18] - 2026-01-12
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#28)
+- *(deps-dev)* Bump the react-ecosystem group with 2 updates (#29)
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.18
 
 ## [6.10.17] - 2026-01-05
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#26)
+- *(deps-dev)* Bump the development-dependencies group with 2 updates (#27)
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.17
 
 ## [6.10.16] - 2025-12-29
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#25)
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.16
 
 ## [6.10.15] - 2025-12-22
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#24)
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.15
 
 ## [6.10.14] - 2025-12-15
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- Update cron schedule for quarterly NPM publish
+- *(deps)* Bump the all-minor-patch group with 2 updates (#23)
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.14
 
 ## [6.10.13] - 2025-12-08
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#20)
+- *(deps-dev)* Bump the development-dependencies group with 2 updates (#21)
+- *(deps-dev)* Bump react in the react-ecosystem group (#22)
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.13
 
 ## [6.10.12] - 2025-12-07
 
@@ -54,122 +61,95 @@ All notable changes to this project will be documented in this file.
 
 - Add CodeQL badge to README
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.12
 
 ## [6.10.11] - 2025-12-07
 
 ### ⚙️ Miscellaneous Tasks
 
 - Remove NODE_AUTH_TOKEN from NPM publish workflow
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.11
 
 ## [6.10.10] - 2025-12-06
 
 ### ⚙️ Miscellaneous Tasks
 
-- Add NODE_AUTH_TOKEN environment variable for NPM publish
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.10
 
 ## [6.10.9] - 2025-12-06
 
 ### ⚙️ Miscellaneous Tasks
 
 - Remove NODE_AUTH_TOKEN environment variable from NPM publish workflow
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- Add NODE_AUTH_TOKEN environment variable for NPM publish
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.9
 
 ## [6.10.8] - 2025-12-06
 
 ### ⚙️ Miscellaneous Tasks
 
-- Update NPM publish workflow to include provenance flag
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.8
 
 ## [6.10.7] - 2025-12-06
 
 ### ⚙️ Miscellaneous Tasks
 
 - Update Next.js usage example to include core web vitals
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- Update NPM publish workflow to include provenance flag
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.7
 
 ## [6.10.6] - 2025-12-01
 
 ### ⚙️ Miscellaneous Tasks
 
-- Add scheduled cron job for NPM publish workflow
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.6
 
 ## [6.10.5] - 2025-12-01
 
 ### ⚙️ Miscellaneous Tasks
 
-- Update dependabot configuration and enhance README with ESLint plugins
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- Add scheduled cron job for NPM publish workflow
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.5
 
 ## [6.10.4] - 2025-12-01
 
 ### ⚙️ Miscellaneous Tasks
 
+- *(deps)* Bump the eslint-plugins group with 3 updates (#12)
+- *(deps-dev)* Bump @types/react in the react-ecosystem group (#13)
+- *(deps-dev)* Bump lint-staged in the development-dependencies group (#14)
+- *(deps)* Bump typescript-eslint from 8.46.4 to 8.47.0 (#15)
 - *(deps)* Bump actions/checkout from 5 to 6 (#16)
 - Remove unnecessary labels from dependabot configuration
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(deps)* Bump the eslint-plugins group with 2 updates (#17)
+- *(deps-dev)* Bump @types/react in the react-ecosystem group (#18)
+- *(deps)* Bump typescript-eslint from 8.47.0 to 8.48.0 (#19)
+- Update dependabot configuration and enhance README with ESLint plugins
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.4
 
 ## [6.10.3] - 2025-11-17
 
 ### ⚙️ Miscellaneous Tasks
 
-- Update dependabot auto-merge workflow to include metadata fetching and separate approval step
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.3
 
 ## [6.10.2] - 2025-11-17
 
 ### ⚙️ Miscellaneous Tasks
 
 - *(deps)* Bump actions/checkout from 4 to 5 (#10)
+- Update dependabot auto-merge workflow to include metadata fetching and separate approval step
 - *(deps)* Bump lewagon/wait-on-check-action from 1.3.4 to 1.4.1
 - *(deps)* Bump lewagon/wait-on-check-action from 1.3.4 to 1.4.1
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.2
 
 ## [6.10.1] - 2025-11-15
 
 ### ⚙️ Miscellaneous Tasks
 
-- Remove .npmignore file
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.1
 
 ## [6.10.0] - 2025-11-15
 
@@ -177,9 +157,10 @@ All notable changes to this project will be documented in this file.
 
 - Add issue templates for bug reports and feature requests, enhance contributing guidelines
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- Remove .npmignore file
+- *(@labeg/code-style)* Release @labeg/code-style@6.10.0
 
 ## [6.9.0] - 2025-11-15
 
@@ -187,19 +168,15 @@ All notable changes to this project will be documented in this file.
 
 - Add CodeQL advanced analysis workflow
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.9.0
 
 ## [6.8.0] - 2025-11-15
 
-### 🚀 Features
+### ⚙️ Miscellaneous Tasks
 
-- Add Dependabot auto-merge workflow
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.8.0
 
 ## [6.7.1] - 2025-11-15
 
@@ -207,53 +184,59 @@ All notable changes to this project will be documented in this file.
 
 - *(deps)* Bump actions/setup-node from 4 to 6
 - *(deps)* Bump actions/checkout from 4 to 5
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.7.1
 
 ## [6.7.0] - 2025-11-15
 
 ### 🚀 Features
 
-- Add dependabot configuration for NPM and GitHub Actions updates
+- Add Dependabot auto-merge workflow
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.7.0
 
 ## [6.6.0] - 2025-11-15
+
+### 🚀 Features
+
+- Add dependabot configuration for NPM and GitHub Actions updates
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@6.6.0
+
+## [6.5.1] - 2025-11-15
 
 ### 🚀 Features
 
 - Update .npmignore to include SECURITY.md and CHANGELOG.md
 - Enhance CI workflows with NPM publish and pull request testing
 
-# Changelog
+### ⚙️ Miscellaneous Tasks
 
-All notable changes to this project will be documented in this file.
+- *(@labeg/code-style)* Release @labeg/code-style@6.5.1
 
-## [6.5.1] - 2025-11-15
+## [6.5.0] - 2025-07-17
 
 ### ⚙️ Miscellaneous Tasks
 
 - Update dependencies and improve ESLint configurations
+- *(@labeg/code-style)* Release @labeg/code-style@6.5.0
 
-# Changelog
-
-All notable changes to this project will be documented in this file.
-
-## [6.5.0] - 2025-07-17
+## [6.4.1] - 2025-07-17
 
 ### 🚀 Features
 
 - *(eslint)* Add indent-binary-ops rule with 4 spaces configuration
 
-## [6.4.1] - 2025-07-17
-
 ### 🐛 Bug Fixes
 
 - *(eslint)* Update stylistic configuration to use 'all' instead of 'all-flat'
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@6.4.1
 
 ## [6.4.0] - 2025-07-10
 
@@ -264,12 +247,13 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Miscellaneous Tasks
 
 - Update dependencies and devDependencies to latest versions
+- *(@labeg/code-style)* Release @labeg/code-style@6.4.0
 
 ## [6.3.1] - 2025-04-10
 
-### 📚 Documentation
+### ⚙️ Miscellaneous Tasks
 
-- Fix readme text
+- *(@labeg/code-style)* Release @labeg/code-style@6.3.1
 
 ## [6.3.0] - 2025-04-10
 
@@ -277,17 +261,30 @@ All notable changes to this project will be documented in this file.
 
 - Update dependencies versions
 
+### 📚 Documentation
+
+- Fix readme text
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@6.3.0
+
 ## [6.2.0] - 2025-03-25
 
-### 🚀 Features
+### ⚙️ Miscellaneous Tasks
 
-- Update dependencies versions
+- *(@labeg/code-style)* Release @labeg/code-style@6.2.0
 
 ## [6.1.0] - 2025-01-22
 
 ### 🚀 Features
 
 - Add package globals to dependecies
+- Update dependencies versions
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@6.1.0
 
 ## [6.0.0] - 2025-01-03
 
@@ -295,13 +292,27 @@ All notable changes to this project will be documented in this file.
 
 - [**breaking**] Drop support eslint 8 config
 
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@6.0.0
+
 ## [5.5.0] - 2024-12-30
 
 ### 🚀 Features
 
 - Disable no-magic-numbers rule in eslint 9 config
 
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@5.5.0
+
 ## [5.4.0] - 2024-12-30
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@5.4.0
+
+## [5.3.3] - 2024-12-30
 
 ### 🚀 Features
 
@@ -309,23 +320,29 @@ All notable changes to this project will be documented in this file.
 - Add react hook plugin for eslint 9 only config
 - Separate typescript-eslint to simple linter and extended language service part
 
-## [5.3.3] - 2024-12-30
-
 ### 🐛 Bug Fixes
 
 - Default ignores for eslint 9
 
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@5.3.3
+
 ## [5.3.2] - 2024-12-26
 
-### 🐛 Bug Fixes
+### ⚙️ Miscellaneous Tasks
 
-- Add main file to package.json
+- *(@labeg/code-style)* Release @labeg/code-style@5.3.2
 
 ## [5.3.1] - 2024-12-26
 
 ### 🐛 Bug Fixes
 
-- Publich eslint 9 config
+- Add main file to package.json
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@5.3.1
 
 ## [5.3.0] - 2024-12-26
 
@@ -333,29 +350,47 @@ All notable changes to this project will be documented in this file.
 
 - Update dependencies versions
 
+### 🐛 Bug Fixes
+
+- Publich eslint 9 config
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@5.3.0
+
 ## [5.2.0] - 2024-12-25
 
-### 🚀 Features
+### ⚙️ Miscellaneous Tasks
 
-- Flat config add support js files
+- *(@labeg/code-style)* Release @labeg/code-style@5.2.0
 
 ## [5.1.0] - 2024-12-24
 
 ### 🚀 Features
 
 - Initilize support eslint 9 flat config
+- Flat config add support js files
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@5.1.0
 
 ## [4.6.0] - 2024-11-27
 
-### 🚀 Features
+### ⚙️ Miscellaneous Tasks
 
-- Remove react-hooks plugin from config
+- *(@labeg/code-style)* Release @labeg/code-style@4.6.0
 
 ## [4.5.0] - 2024-11-27
 
 ### 🚀 Features
 
 - Update dependencies versions
+- Remove react-hooks plugin from config
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@4.5.0
 
 ## [4.4.0] - 2024-10-05
 
@@ -363,17 +398,29 @@ All notable changes to this project will be documented in this file.
 
 - Update dependencies versions
 
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@4.4.0
+
 ## [4.3.0] - 2024-09-07
 
 ### 🚀 Features
 
 - Update dependencies versions
 
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@4.3.0
+
 ## [4.2.3] - 2024-06-07
 
 ### 📚 Documentation
 
 - Regenerate changelog
+
+### ⚙️ Miscellaneous Tasks
+
+- *(@labeg/code-style)* Release @labeg/code-style@4.2.3
 
 ## [4.2.2] - 2024-06-02
 
