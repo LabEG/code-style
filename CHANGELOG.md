@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.21] - 2026-04-01
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Bump minimatch from 3.1.2 to 3.1.3 (#42)
+- *(deps)* Bump the all-minor-patch group with 2 updates (#43)
+- *(deps-dev)* Bump the development-dependencies group with 3 updates (#44)
+- *(deps)* Bump minimatch from 3.1.3 to 3.1.5 (#45)
+- *(deps)* Bump flatted from 3.3.3 to 3.4.1 (#47)
+- *(deps)* Bump flatted from 3.4.1 to 3.4.2 (#49)
+- *(deps)* Bump picomatch (#50)
+- *(deps)* Bump brace-expansion from 1.1.12 to 1.1.13 (#51)
+- *(deps)* Bump lewagon/wait-on-check-action from 1.5.0 to 1.6.0 (#52)
+
 ## [6.10.20] - 2026-02-23
 
 ### ⚙️ Miscellaneous Tasks
