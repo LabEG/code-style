@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.10.22] - 2026-05-08
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Bump the eslint-plugins group across 1 directory with 4 updates (#48)
+- *(deps)* Bump the all-minor-patch group with 2 updates (#53)
+- *(deps)* Bump lewagon/wait-on-check-action from 1.6.0 to 1.6.1 (#55)
+- *(deps-dev)* Bump the development-dependencies group across 1 directory with 5 updates (#57)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#59)
+- *(deps)* Bump the eslint-plugins group across 1 directory with 4 updates (#60)
+- Update eslint packages and regenerate package-lock.json
+
 ## [6.10.21] - 2026-04-01
 
 ### ⚙️ Miscellaneous Tasks
