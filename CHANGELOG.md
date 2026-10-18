@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.0] - 2026-10-18
+
+### 🚀 Features
+
+- Synchronize eslint and babel dependency versions
+- [**breaking**] Migrate to ESLint 10 with new React and a11y plugins
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Bump eslint in the eslint-plugins group (#61)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#62)
+- *(deps-dev)* Bump the development-dependencies group with 3 updates (#63)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#64)
+- *(deps-dev)* Bump @types/react in the react-ecosystem group (#65)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#66)
+- *(deps-dev)* Bump the react-ecosystem group with 2 updates (#67)
+- *(deps)* Bump @eslint/js from 9.39.4 to 10.0.1 (#68)
+- *(deps)* Bump eslint in the eslint-plugins group (#69)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#70)
+- *(deps-dev)* Bump the development-dependencies group with 3 updates (#71)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#73)
+- *(deps-dev)* Bump @types/react in the react-ecosystem group (#74)
+- *(deps)* Bump js-yaml from 4.1.1 to 4.2.0 (#75)
+- *(deps)* Bump actions/checkout from 6 to 7 (#76)
+- *(deps)* Bump the all-minor-patch group with 2 updates (#77)
+- *(deps-dev)* Bump the development-dependencies group with 3 updates (#78)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#79)
+- *(deps-dev)* Bump the development-dependencies group with 2 updates (#80)
+- *(deps)* Bump typescript-eslint in the all-minor-patch group (#82)
+- *(deps)* Bump the eslint-plugins group across 1 directory with 3 updates (#83)
+- *(deps)* Bump actions/setup-node from 6 to 7 (#84)
+- *(deps-dev)* Bump fast-uri from 3.1.3 to 3.1.4 (#85)
+- *(deps)* Bump the all-minor-patch group with 2 updates (#86)
+- *(deps-dev)* Bump react in the react-ecosystem group (#87)
+- *(deps)* Bump eslint in the eslint-plugins group (#88)
+- *(deps-dev)* Bump the development-dependencies group with 2 updates (#90)
+- *(deps)* Bump brace-expansion from 1.1.14 to 1.1.18 (#91)
+- *(deps)* Bump dependabot/fetch-metadata from 2 to 3
+- *(deps)* Bump dependabot/fetch-metadata from 2 to 3
+- *(deps)* Bump lewagon/wait-on-check-action from 1.6.1 to 1.9.0
+- *(deps)* Bump lewagon/wait-on-check-action from 1.6.1 to 1.9.0
+
 ## [6.10.22] - 2026-05-08
 
 ### ⚙️ Miscellaneous Tasks
