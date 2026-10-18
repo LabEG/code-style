@@ -3,6 +3,8 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable max-classes-per-file */
 /* eslint-disable preserve-caught-error */
+/* eslint-disable @typescript-eslint/no-generated-empty-object-type */
+/* eslint-disable @typescript-eslint/no-meaningless-void-operator */
 /**
  * Complex Test file for TypeScript ESLint rules
  * This file contains various TypeScript patterns to test different linting scenarios

@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 /* eslint-disable max-lines */
-/* eslint-disable react/no-multi-comp */
 /* eslint-disable max-lines-per-function */
 /**
  * Complex Test component for React JSX ESLint rules
@@ -216,78 +215,89 @@ const ComplexComponent = ({
                             <li
                                 className={`item ${selectedId === item.id ? "selected" : ""}`}
                                 key={item.id || index}
-                                onClick={handleItemClickWrapper(item, index)}
                                 style={{
                                     backgroundColor: selectedId === item.id ? "#e0e0e0" : "transparent",
                                     padding: "10px",
-                                    borderBottom: "1px solid #ccc",
-                                    cursor: "pointer"
+                                    borderBottom: "1px solid #ccc"
                                 }}
                             >
-                                <div className="item-content">
-                                    <h3 className="item-title">
-                                        {item.title}
-                                    </h3>
+                                <button
+                                    className="item-select"
+                                    onClick={handleItemClickWrapper(item, index)}
+                                    style={{
+                                        all: "unset",
+                                        boxSizing: "border-box",
+                                        cursor: "pointer",
+                                        display: "block",
+                                        width: "100%"
+                                    }}
+                                    type="button"
+                                >
+                                    <div className="item-content">
+                                        <h3 className="item-title">
+                                            {item.title}
+                                        </h3>
 
-                                    <p className="item-description">
-                                        {item.description}
-                                    </p>
+                                        <p className="item-description">
+                                            {item.description}
+                                        </p>
 
-                                    {item.tags && item.tags.length > 0 ?
-                                        <div className="item-tags">
-                                            {item.tags.map((tag) => (
-                                                <span
-                                                    className="tag"
-                                                    key={tag.name}
-                                                    style={{
-                                                        backgroundColor: tag.color || "#007acc",
-                                                        color: "white",
-                                                        padding: "2px 6px",
-                                                        borderRadius: "3px",
-                                                        marginRight: "4px",
-                                                        fontSize: "12px"
-                                                    }}
-                                                >
-                                                    {tag.name}
-                                                </span>
-                                            ))}
-                                        </div> :
-                                        null}
+                                        {item.tags && item.tags.length > 0 ?
+                                            <div className="item-tags">
+                                                {item.tags.map((tag) => (
+                                                    <span
+                                                        className="tag"
+                                                        key={tag.name}
+                                                        style={{
+                                                            backgroundColor: tag.color || "#007acc",
+                                                            color: "white",
+                                                            padding: "2px 6px",
+                                                            borderRadius: "3px",
+                                                            marginRight: "4px",
+                                                            fontSize: "12px"
+                                                        }}
+                                                    >
+                                                        {tag.name}
+                                                    </span>
+                                                ))}
+                                            </div> :
+                                            null}
+                                    </div>
+                                </button>
 
-                                    <div className="item-actions">
+                                <div className="item-actions">
+                                    <button
+                                        onClick={handleRemoveClick(item.id)}
+                                        style={{
+                                            backgroundColor: "#dc3545",
+                                            color: "white",
+                                            border: "none",
+                                            padding: "4px 8px",
+                                            borderRadius: "3px",
+                                            cursor: "pointer"
+                                        }}
+                                        type="button"
+                                    >
+                                        Remove
+                                    </button>
+
+                                    {item.editable ?
                                         <button
-                                            onClick={handleRemoveClick(item.id)}
+                                            onClick={handleEditClick(item.id)}
                                             style={{
-                                                backgroundColor: "#dc3545",
+                                                backgroundColor: "#007acc",
                                                 color: "white",
                                                 border: "none",
                                                 padding: "4px 8px",
                                                 borderRadius: "3px",
-                                                cursor: "pointer"
+                                                cursor: "pointer",
+                                                marginLeft: "4px"
                                             }}
                                             type="button"
                                         >
-                                            Remove
-                                        </button>
-
-                                        {item.editable ?
-                                            <button
-                                                onClick={handleEditClick(item.id)}
-                                                style={{
-                                                    backgroundColor: "#007acc",
-                                                    color: "white",
-                                                    border: "none",
-                                                    padding: "4px 8px",
-                                                    borderRadius: "3px",
-                                                    cursor: "pointer",
-                                                    marginLeft: "4px"
-                                                }}
-                                                type="button"
-                                            >
-                                                Edit
-                                            </button> :
-                                            null}
-                                    </div>
+                                            Edit
+                                        </button> :
+                                        null}
                                 </div>
                             </li>
                         ))}
@@ -506,11 +516,11 @@ const FormComponent = () => {
             </div>
 
             <div style={{marginBottom: "15px"}}>
-                <label style={{display: "block",
+                <span style={{display: "block",
                     marginBottom: "5px"}}
                 >
                     Preferences
-                </label>
+                </span>
 
                 {["Sports", "Music", "Movies", "Books", "Travel"].map((preference) => (
                     <div

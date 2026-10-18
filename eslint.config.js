@@ -1,47 +1,36 @@
 // eslint.config.js
+import {defineConfig, globalIgnores} from "eslint/config";
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
-import reactPlugin from "eslint-plugin-react";
+import eslintReact from "@eslint-react/eslint-plugin";
 import reactHooks from "eslint-plugin-react-hooks";
-// Import jsxA11y from "eslint-plugin-jsx-a11y";
+import jsxA11y from "eslint-plugin-jsx-a11y-x";
 import globals from "globals";
 
 /**
+ * For Next.js use @next/eslint-plugin-next instead of eslint-config-next to avoid plugin redefine conflicts.
+ *
  * Help by links:
  * https://github.com/eslint/eslint/discussions/18304
  */
 
-/** @type {import("eslint").Linter.Config} */
-export default [
-    // DO NOT PUT OTHER PROPS IN THIS OBJECT
-    {ignores: ["**/node_modules/**", "**/dist/**"]},
+export default defineConfig([
+    globalIgnores(["**/node_modules/**", "**/dist/**"]),
 
-    // THE IGNORES IS APPLIED ALSO TO THESE FOLLOWING CONFIGS
+    // Files-only config: declares lintable extensions (notably .jsx) for directory-based linting
     {files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"]},
 
     js.configs.all,
     ...tseslint.configs.strict,
     ...tseslint.configs.stylistic,
     stylistic.configs.all,
-    reactPlugin.configs.flat.all,
+    eslintReact.configs.all,
+    reactHooks.configs.flat.recommended,
+    jsxA11y.configs.strict,
 
-    /*
-     * Have conflict with next.js:
-     * Config "jsx-a11y/strict": Key "plugins": Cannot redefine plugin "jsx-a11y".
-     * Try uncomment in next version
-     */
-    // JsxA11y.flatConfigs.strict,
-
-    { // Don't support flat config yet
-        plugins: {
-            "react-hooks": reactHooks
-        },
-        rules: reactHooks.configs.recommended.rules
-    },
-
-    ...tseslint.config({
-        files: ["**/*.ts"],
+    {
+        files: ["**/*.{ts,tsx}"],
         extends: [
             ...tseslint.configs.strictTypeCheckedOnly,
             ...tseslint.configs.stylisticTypeCheckedOnly
@@ -49,8 +38,7 @@ export default [
         languageOptions: {
             parser: tseslint.parser,
             parserOptions: {
-                projectService: true,
-                tsconfigRootDir: import.meta.dirname
+                projectService: true // Resolves tsconfig by file location, no tsconfigRootDir needed
             }
         },
         rules: {
@@ -61,11 +49,11 @@ export default [
             "@typescript-eslint/no-extra-parens": "off", // Conflict with react best practise in jsx
             "@typescript-eslint/promise-function-async": "off", // More nice
             "@typescript-eslint/no-misused-promises": ["error", {checksVoidReturn: false}], // More nice
-            "@typescript-eslint/naming-convention": "off", // Bad with react func components
+            "@typescript-eslint/naming-convention": "off", // For react covered by @eslint-react/naming-convention/*
             "@typescript-eslint/no-confusing-void-expression": "off", // More nice
             "@typescript-eslint/member-ordering": "off" // Need correct priority
         }
-    }),
+    },
 
     {
         languageOptions: {
@@ -74,11 +62,6 @@ export default [
             globals: {
                 ...globals.browser,
                 ...globals.node
-            }
-        },
-        settings: {
-            react: {
-                version: "detect"
             }
         },
         rules: {
@@ -95,27 +78,6 @@ export default [
             "no-bitwise": "off", // Used in many projects
             "no-inline-comments": "off", // Maybe later?
             "line-comment-position": "off", // Maybe later?
-
-
-            // Eslint moved to Stylistic, but now to buggy for js. Remove after fix bugs in new versions Stylistic
-            "max-len": [
-                "error", {
-                    code: 140,
-                    comments: 140
-                }
-            ], // More nice, for modern screens
-            "padded-blocks": [
-                "error", {
-                    classes: "always",
-                    blocks: "never",
-                    switches: "never"
-                }
-            ], // More nice
-            "function-call-argument-newline": ["error", "consistent"], // More nice
-            "quote-props": ["error", "as-needed"], // More nice
-            "multiline-ternary": ["error", "always-multiline"], // More nice
-            "array-element-newline": ["error", "consistent"], // More nice
-            "operator-linebreak": ["error", "after"], // More nice
 
 
             /**
@@ -141,19 +103,7 @@ export default [
             "@stylistic/operator-linebreak": ["error", "after"], // More nice
             "@stylistic/no-extra-parens": "off",
             "@stylistic/dot-location": ["error", "property"], // Maybe later?
-            "@stylistic/indent-binary-ops": ["error", 4], // Other indends in stylistic 4
-
-            /**
-             * React rules
-             */
-            "react/jsx-filename-extension": ["error", {extensions: [".jsx", ".tsx"]}], // Added typescript file extension
-            "react/jsx-no-literals": "off", // Broken rule, not work with ??
-            "react/jsx-max-depth": ["error", {max: 10}], // To small by default
-            "react/function-component-definition": ["error", {namedComponents: "arrow-function"}], // Same as eslint func-styles
-            "react/forbid-component-props": "off", // Conflict with styled-components
-            "react/require-default-props": "off", // Don't used in modern react
-            "react/jsx-uses-react": "off", // https://ru.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
-            "react/react-in-jsx-scope": "off" // https://ru.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+            "@stylistic/indent-binary-ops": ["error", 4] // Other indends in stylistic 4
         }
     }
-];
+]);

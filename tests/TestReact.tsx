@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-no-bind */
 /* eslint-disable no-console */
 /* eslint-disable max-lines-per-function */
 /* eslint-disable max-statements */
 /* eslint-disable max-lines */
-/* eslint-disable react/no-multi-comp */
+/* eslint-disable @eslint-react/no-class-component */
 /* eslint-disable react-hooks/purity */
 /**
  * COMPREHENSIVE LINTER TEST FILE
@@ -86,11 +85,11 @@ const exampleHandler: EventHandler<string> = (data) => console.log(data);
 
 // Testing enums with potential issues
 enum ActionType {
-    INCREMENT = 1,
-    DECREMENT = 2,
-    RESET = 3,
-    SET_NAME = "SET_NAME", // Mixed enum types
-    DELETE = "DELETE" // Inconsistent quotes
+    INCREMENT = "INCREMENT",
+    DECREMENT = "DECREMENT",
+    RESET = "RESET",
+    SET_NAME = "SET_NAME",
+    DELETE = "DELETE"
 }
 
 enum StatusCodes {
@@ -172,7 +171,7 @@ const DUPLICATE_ARRAY = [1, 2, 3, 2, 4, 1, 5]; // Duplicates kept for testing
 
 // Testing functions with any parameters
 const processData = function processData (data: unknown): unknown {
-    return (data as Record<string, Record<string, Record<string, unknown>>>)?.something?.deeply?.nested;
+    return (data as Record<string, Record<string, Record<string, unknown>>>).something.deeply.nested;
 };
 
 const transformData = (input: unknown, callback: (arg: unknown) => unknown): unknown => {
@@ -220,7 +219,7 @@ const complexFunction = function complexFunction (params: {
     if (firstParam) {
         if (secondParam) {
             if (thirdParam) {
-                return (restParams as Record<string, unknown>[]).map((item) => (item as Record<string, unknown>).value);
+                return (restParams as Record<string, unknown>[]).map((item) => item.value);
             }
         }
     }
@@ -231,7 +230,7 @@ const complexFunction = function complexFunction (params: {
 const mapFunction = (items: unknown[]) => (items as Record<string, unknown>[]).map((item) => item.value);
 const filterFunction = (items: unknown[]) => (items as Record<string, unknown>[]).filter((item) => item.active);
 const reduceFunction = (items: unknown[]) => (items as Record<string, unknown>[])
-    .reduce((acc, item) => (acc as number) + ((item as Record<string, unknown>).count as number), 0);
+    .reduce((acc, item) => acc + (item.count as number), 0);
 
 /*
  * =============================================================================
@@ -314,7 +313,7 @@ class ProblematicComponent extends React.Component<ProblematicComponentProps, Pr
         console.log("Button clicked in component:", this.constructor.name);
     };
 
-    handleSubmit (event: React.FormEvent<HTMLFormElement>): void {
+    handleSubmit (event: React.SyntheticEvent<HTMLFormElement>): void {
         event.preventDefault();
         const {data, loading, error, cache, history} = this.state;
         // Async operation without error handling
@@ -389,7 +388,7 @@ const ImpurePureComponent: React.FC<ImpurePureComponentProps> = (props) => {
     const data = {
         timestamp: Date.now(),
         random: Math.random(),
-        itemsCount: items?.length || 0 // Use the items prop
+        itemsCount: items?.length ?? 0 // Use the items prop
     };
 
     return (
@@ -561,7 +560,7 @@ const problematicReducer = (state: ReducerState, action: ReducerAction): Reducer
         case "RESET":
             return {}; // Consistent return type
         default:
-            throw new Error(`Unknown action: ${action.type}`);
+            throw new Error(`Unknown action: ${String(action.type)}`);
     }
 };
 
@@ -605,7 +604,7 @@ const ProblematicForwardRef = forwardRef<CustomInputHandle, ProblematicForwardRe
 
     useImperativeHandle(ref, () => ({
         focus: () => internalRef.current?.focus(),
-        getValue: () => internalRef.current?.value || "",
+        getValue: () => internalRef.current?.value ?? "",
         doSomething: () => {
             // Side effect in imperative handle
             console.log("Doing something...");
@@ -642,8 +641,8 @@ const ProblematicMemo = memo((props: {
 }) => {
     // Object creation in render
     const style = {
-        color: props.color || "black",
-        fontSize: `${props.size || 14}px`
+        color: props.color ?? "black",
+        fontSize: `${String(props.size ?? 14)}px`
     };
 
     const data = {
@@ -725,7 +724,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
 
     useEffect(() => {
         // DOM manipulation in effect
-        document.title = `Data: ${data?.length || 0} items`;
+        document.title = `Data: ${String(data.length)} items`;
         const {theme} = props;
         document.body.style.background = theme === "dark" ? "#000" : "#fff";
     });
@@ -768,7 +767,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
 
     // Memoized values with issues
     const filteredData = useMemo(() => {
-        if (!data || !Array.isArray(data)) {
+        if (!Array.isArray(data)) {
             return [];
         }
 
@@ -786,7 +785,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
     }, [filteredData]);
 
     // Event handlers with inline functions
-    const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formDataObj = new FormData(event.target as HTMLFormElement);
         const formDataEntries = Object.fromEntries(formDataObj);
@@ -812,12 +811,12 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
             return (
                 <div>
                     Error:
-                    {error instanceof Error ? error.message : String(error)}
+                    {error instanceof Error ? error.message : error}
                 </div>
             );
         }
 
-        if (!data || data.length === 0) {
+        if (data.length === 0) {
             return (
                 <div>
                     No data available
@@ -829,13 +828,21 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
             <div>
                 {filteredData.map((item: Record<string, unknown>, index: number) => (
                     <div
-                        key={item.id as string || `item-${index}`} // Better key handling
+                        key={(item.id as string) || `item-${String(index)}`} // Better key handling
                         onClick={() => handleItemSelect(item, !selectedItems.includes(item))}
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                                event.preventDefault();
+                                handleItemSelect(item, !selectedItems.includes(item));
+                            }
+                        }}
+                        role="button"
                         style={{
                             backgroundColor: selectedItems.includes(item) ? "#e0e0e0" : "transparent",
                             padding: "10px",
                             cursor: "pointer"
                         }}
+                        tabIndex={0}
                     >
                         <h3>
                             {(item.title as string) || (item.name as string) || "Untitled"}
@@ -849,7 +856,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
                             <div>
                                 {(item.tags as unknown[]).map((tag: unknown) => (
                                     <span
-                                        key={`${item.id}-tag-${tag}`} // Better key using item id and tag
+                                        key={`${String(item.id)}-tag-${String(tag)}`} // Better key using item id and tag
                                         style={{
                                             background: "#007acc",
                                             color: "white",
@@ -990,6 +997,12 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
             {modalOpen ?
                 <div
                     onClick={handleModalClose}
+                    onKeyDown={(event) => {
+                        if (event.key === "Escape") {
+                            handleModalClose();
+                        }
+                    }}
+                    role="button"
                     style={{
                         position: "fixed",
                         top: 0,
@@ -1001,15 +1014,19 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
                         alignItems: "center",
                         justifyContent: "center"
                     }}
+                    tabIndex={0}
                 >
                     <div
                         onClick={(event) => event.stopPropagation()}
+                        onKeyDown={(event) => event.stopPropagation()}
+                        role="button"
                         style={{
                             background: "white",
                             padding: "20px",
                             borderRadius: "8px",
                             minWidth: "400px"
                         }}
+                        tabIndex={-1}
                     >
                         <h2>
                             Modal Form

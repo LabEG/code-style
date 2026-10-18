@@ -10,10 +10,10 @@ Comprehensive ESLint configuration for TypeScript and React projects with strict
 
 ## Features
 
-- ✅ **ESLint 9+** with flat config format
+- ✅ **ESLint 10** with flat config format (`defineConfig`)
 - ✅ **TypeScript** support with strict rules
 - ✅ **React 19+** and React Hooks best practices
-- ✅ **Accessibility** checks (jsx-a11y)
+- ✅ **Accessibility** checks (jsx-a11y-x)
 - ✅ **Code style** enforcement (@stylistic)
 - ✅ **Modern JavaScript** standards
 
@@ -24,9 +24,9 @@ This configuration includes and configures the following ESLint plugins:
 - **[@eslint/js](https://www.npmjs.com/package/@eslint/js)** - Core ESLint JavaScript rules
 - **[typescript-eslint](https://typescript-eslint.io/)** - TypeScript-specific linting rules
 - **[@stylistic/eslint-plugin](https://eslint.style/)** - Code formatting and style rules
-- **[eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)** - React-specific linting rules
+- **[@eslint-react/eslint-plugin](https://github.com/Rel1cx/eslint-react)** - React-specific linting rules
 - **[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)** - Rules for React Hooks
-- **[eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)** - Accessibility rules for JSX (commented out, see config)
+- **[eslint-plugin-jsx-a11y-x](https://github.com/es-tooling/eslint-plugin-jsx-a11y-x)** - Accessibility rules for JSX (community fork of eslint-plugin-jsx-a11y with ESLint 10 support)
 
 ## Installation
 
@@ -36,9 +36,11 @@ Install the package as a dev dependency:
 npm install -D @labeg/code-style
 ```
 
+Requires Node.js `>= 20.19.0`. Peer requirements: `typescript >= 5.0.0`. ESLint and all plugins (including `eslint-plugin-jsx-a11y-x`) are regular dependencies of this package.
+
 ## Usage
 
-### ESLint 9+ (Flat Config)
+### ESLint 10 (Flat Config)
 
 Create or update your `eslint.config.js`:
 
@@ -58,19 +60,19 @@ export default [
 
 ### Next.js Projects
 
+`next lint` was removed in Next.js 16, and `eslint-config-next` bundles its own copies of the react-hooks/jsx-a11y/import plugins, which collide with this package ("Cannot redefine plugin"). Use the Next.js plugin directly instead:
+
+```bash
+npm install -D @next/eslint-plugin-next
+```
+
 ```javascript
-import nextVitals from "eslint-config-next/core-web-vitals";
+import nextPlugin from "@next/eslint-plugin-next";
 import codeStyle from "@labeg/code-style";
 
 export default [
-    ...nextVitals,
     ...codeStyle,
-    {
-        rules: {
-            // Next.js specific overrides
-            "react/react-in-jsx-scope": "off"
-        }
-    }
+    nextPlugin.configs["flat/core-web-vitals"]
 ];
 ```
 
@@ -81,6 +83,8 @@ The configuration automatically works with TypeScript files (`.ts`, `.tsx`). Mak
 ```bash
 npm install -D typescript
 ```
+
+For `.ts` and `.tsx` files the config enables type-aware rules via `projectService`, so the linted files must be included in your `tsconfig.json`.
 
 
 ## Code Style Philosophy
@@ -128,9 +132,13 @@ const data = 'Sending "grandma" ' + count * 5 + ' ' + message + '.';
 const data = `Sending "grandma" ${count * 5} ${message}.`;
 ```
 
-### Line Length: 120 Characters, Indent: 4 Spaces
+### Line Length: 140 Characters, Indent: 4 Spaces
 
-Optimal line length is 120 characters for readability across different monitors. Use 4-space indentation for clear nesting levels.
+Optimal line length is 140 characters for readability across different monitors. Use 4-space indentation for clear nesting levels.
+
+### Prettier
+
+Formatting is primarily handled by `@stylistic/eslint-plugin` (auto-fix on save or via `eslint --fix`). The package also ships a `.prettierrc` aligned with these settings (140 character line length, 4-space indent, double quotes, no trailing commas) for projects that use Prettier. Note that mixing Prettier with `@stylistic` fixable rules can lead to conflicting output — prefer one tool for formatting.
 
 ## Security
 
