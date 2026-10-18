@@ -7,7 +7,7 @@
  * Ignoring all eslint rules for testing purposes
  */
 
-import React, {useState, useEffect, useCallback, useMemo} from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import PropTypes from "prop-types";
 
 // Testing various problematic patterns

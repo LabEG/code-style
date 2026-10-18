@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 /* eslint-disable no-console */
-/* eslint-disable class-methods-use-this */
+/* eslint-disable @typescript-eslint/class-methods-use-this */
 /* eslint-disable max-classes-per-file */
 /* eslint-disable preserve-caught-error */
 /* eslint-disable @typescript-eslint/no-generated-empty-object-type */
@@ -39,19 +39,19 @@ interface ExtendsAny extends Record<string, unknown> {
 
 // Testing enum issues
 enum NumericEnum {
-    FIRST, // = 0
-    SECOND, // = 1
-    THIRD = 5,
-    FOURTH // = 6
+    First = 0,
+    Second = 1,
+    Third = 5,
+    Fourth = 6
 }
 
 enum MixedEnum {
-    STRING_VALUE = "string",
-    ANOTHER_STRING = "another"
+    StringValue = "string",
+    AnotherString = "another"
 }
 
-export const NumericMixedEnum = {
-    NUMERIC_VALUE: 42
+export const numericMixedEnum = {
+    numericValue: 42
 } as const;
 
 // Const assertions and type issues
@@ -77,21 +77,27 @@ type ProblematicUnion = string | number | boolean | object | (() => void);
 // Testing class with TypeScript issues
 class ProblematicClass {
 
-    // Public field without explicit access modifier
-    publicField: string;
-
-    // Using proper type instead of any
-    private data: Record<string, unknown>;
+    // Public field with explicit access modifier
+    public publicField: string;
 
     // Parameter properties with issues - using config object pattern
-    constructor (config: {
+    public constructor (config: {
         name: string;
         age: number;
         id: number;
         callback: () => void;
     }) {
         this.publicField = config.name;
-        this.data = {};
+    }
+
+    // Static method with proper types
+    public static createInstance (data: {
+        name: string;
+        age: number;
+        id: number;
+        callback: () => void;
+    }): ProblematicClass {
+        return new ProblematicClass(data);
     }
 
     // Method with proper types
@@ -124,22 +130,12 @@ class ProblematicClass {
         return param;
     }
 
-    // Static method with proper types
-    public static createInstance (data: {
-        name: string;
-        age: number;
-        id: number;
-        callback: () => void;
-    }): ProblematicClass {
-        return new ProblematicClass(data);
-    }
-
 }
 
 // Generic class with constraints issues
 class GenericClass<T = unknown> { // Fixed default type
 
-    private items: T[] = [];
+    private readonly items: T[] = [];
 
     // Generic method with proper typing
     public add (item: T): void {
@@ -173,18 +169,31 @@ const isString = (value: unknown): value is string => typeof value === "string";
 
 const isObject = (value: unknown): value is Record<string, unknown> => typeof value === "object" && value !== null && !Array.isArray(value);
 
+const isFunction = (value: unknown): value is (...args: unknown[]) => unknown => typeof value === "function";
+
 // Problematic type assertions
-const typeAssertionIssues = () => {
+const typeAssertionIssues = (): {
+    unsafeString: string;
+    unsafeNumber: number;
+    unsafeObject: {name: string;
+        age: number;};
+    doubleAssertion: string;
+    nonNullValue: string;
+} => {
     const unknownValue: unknown = {name: "test"};
 
-    // Safer type assertions
-    const unsafeString = unknownValue as string;
-    const unsafeNumber = unknownValue as number;
-    const unsafeObject = unknownValue as {name: string;
-        age: number;};
+    // Safe narrowing instead of unsafe assertions
+    const unsafeString = isString(unknownValue) ? unknownValue : "";
+    const unsafeNumber = typeof unknownValue === "number" ? unknownValue : 0;
+    const unsafeObject: {name: string;
+        age: number;} = isObject(unknownValue) && isString(unknownValue.name) && typeof unknownValue.age === "number" ?
+        {name: unknownValue.name,
+            age: unknownValue.age} :
+        {name: "default",
+            age: 0};
 
-    // Direct assertion (removing unnecessary unknown step)
-    const doubleAssertion = unknownValue as string;
+    // Reuse of the checked value
+    const doubleAssertion = unsafeString;
 
     // Safe null check instead of non-null assertion
     const nullableValue: string | null = Math.random() > 0.5 ? "value" : null;
@@ -238,7 +247,7 @@ declare global {
 }
 
 // Module exports instead of namespace
-export const ProblematicModule = {
+export const problematicModule = {
     type: {} as Record<string, unknown>,
 
     configure: (): void => {
@@ -278,8 +287,9 @@ class ErrorHandler {
 class AsyncPatterns {
 
     // Promise with proper typing
-    public fetchWithoutErrorHandling (url: string): Promise<unknown> {
-        return fetch(url).then((response) => response.json());
+    public async fetchWithoutErrorHandling (url: string): Promise<unknown> {
+        const response = await fetch(url);
+        return response.json();
     }
 
     // Async function with proper types
@@ -290,11 +300,10 @@ class AsyncPatterns {
     }
 
     // Promise chain with proper types
-    public chainPromises (initialValue: unknown): Promise<unknown> {
-        return Promise.resolve(initialValue)
-            .then((value: unknown) => String(value))
-            .then((str: string) => JSON.parse(str) as {result: unknown})
-            .then((obj: {result: unknown}) => obj.result);
+    public async chainPromises (initialValue: unknown): Promise<unknown> {
+        const stringValue = String(await Promise.resolve(initialValue));
+        const parsed: unknown = JSON.parse(stringValue);
+        return isObject(parsed) && "result" in parsed ? parsed.result : null;
     }
 
 }
@@ -311,13 +320,13 @@ type MappedWithAny<T> = {
 type ProblematicMapped = Record<string, unknown>;
 
 // Testing decorators (if enabled) - helper function for demo purposes
-const demonstrateDecorator = (target: unknown, propertyKey: string, descriptor?: PropertyDescriptor) => {
-    if (descriptor && propertyKey && target) {
-        const originalMethod = descriptor.value as (...args: unknown[]) => unknown;
+const demonstrateDecorator = (target: unknown, propertyKey: string, descriptor?: PropertyDescriptor): void => {
+    if (descriptor !== void 0 && target !== void 0 && isFunction(descriptor.value)) {
+        const originalMethod = descriptor.value;
 
-        descriptor.value = function value (...args: unknown[]) {
+        descriptor.value = function value (...args: unknown[]): unknown {
             console.log(`Calling ${propertyKey} with args:`, args);
-            return originalMethod.apply(this, args);
+            return originalMethod(...args);
         };
     }
 };
@@ -344,11 +353,11 @@ type StringTemplate = `${string}-${string}`; // Using string in template
 
 // Testing advanced types with proper types
 interface AdvancedProblems<T = unknown> {
-    // Method without unnecessary generic
-    transform(input: T): unknown; // Method without generic
-
     // Index signature with proper type
     [key: `prefix_${string}`]: unknown;
+
+    // Method without unnecessary generic
+    transform: (input: T) => unknown; // Function property instead of method
 
     // Conditional property types
     conditionalProp: T extends string ? T : unknown;
@@ -370,18 +379,18 @@ type Shape = {
 };
 
 // Function with proper types
-const complexFunction = (params: {
+const complexFunction = async (params: {
     param1: unknown;
     param2: unknown;
     param3: (input: unknown) => unknown;
-}): Promise<unknown> => new Promise((resolve, reject) => {
+}): Promise<unknown> => {
     try {
         const result = params.param3(params.param1);
-        resolve(result);
+        return await Promise.resolve(result);
     } catch (error) {
-        reject(error instanceof Error ? error : new Error(String(error)));
+        throw error instanceof Error ? error : new Error(String(error));
     }
-});
+};
 
 /*
  * Testing module augmentation with issues (removed due to module not found)
@@ -390,7 +399,11 @@ const complexFunction = (params: {
  */
 
 // Array methods with proper types
-const arrayProblems = () => {
+const arrayProblems = (): {
+    mapped: string[];
+    filtered: unknown[];
+    reduced: number;
+} => {
     const mixedArray: unknown[] = [1, "string", true, {}];
 
     // Map with proper typing
@@ -417,30 +430,30 @@ interface GenericWithIssues<T, U = unknown, V = () => void> {
     prop1: T;
     prop2: U; // Defaults to unknown
     prop3: V; // Defaults to function
-    method(param: T): T; // Method without unnecessary generic
+    method: (param: T) => T; // Function property instead of method
 }
 
 // Class hierarchy with proper types
 abstract class AbstractBase {
 
-    protected abstract process (data: unknown): unknown;
-
     public execute (input: unknown): unknown {
         return this.process(input);
     }
+
+    protected abstract process (data: unknown): unknown;
 
 }
 
 class ConcreteImplementation extends AbstractBase {
 
-    protected process (data: unknown): unknown {
-        // Implementation with proper types
-        return data;
-    }
-
     // Additional method with proper types
     public transform (input: unknown, transformer: (input: unknown) => unknown): unknown {
         return transformer(input);
+    }
+
+    protected process (data: unknown): unknown {
+        // Implementation with proper types
+        return data;
     }
 
 }
@@ -470,16 +483,6 @@ type UnionWithAny = string | number; // Removed unknown as it overrides others
 
 // Complex export with all problematic patterns
 export {
-    // Interfaces and types
-    BadInterface,
-    ProblematicIndex,
-    EmptyInterface,
-    ExtendsAny,
-    ComplexInterface,
-    AdvancedProblems,
-    GenericWithIssues,
-    MutableConfig,
-
     // Classes
     ProblematicClass,
     GenericClass,
@@ -510,12 +513,20 @@ export {
 
     /*
      * Module object (exported separately)
-     * ProblematicModule exported above
+     * problematicModule exported above
      */
 };
 
 // Type exports with issues
 export type {
+    BadInterface,
+    ProblematicIndex,
+    EmptyInterface,
+    ExtendsAny,
+    ComplexInterface,
+    AdvancedProblems,
+    GenericWithIssues,
+    MutableConfig,
     AnyType,
     FunctionType,
     ObjectType,

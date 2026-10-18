@@ -32,8 +32,9 @@ export default defineConfig([
     {
         files: ["**/*.{ts,tsx}"],
         extends: [
-            ...tseslint.configs.strictTypeCheckedOnly,
-            ...tseslint.configs.stylisticTypeCheckedOnly
+            ...tseslint.configs.all,
+            // Overrides options for restrict-plus-operands, restrict-template-expressions, return-await
+            ...tseslint.configs.strictTypeCheckedOnly
         ],
         languageOptions: {
             parser: tseslint.parser,
@@ -42,16 +43,27 @@ export default defineConfig([
             }
         },
         rules: {
-            "@typescript-eslint/no-inferrable-types": "off", // Need for reflection
+            // Custom options replace defaults entirely, so default selectors are restated
+            "@typescript-eslint/naming-convention": [
+                "error",
+                {selector: "enumMember",
+                    format: ["PascalCase"]}, // Enum members are PascalCase by TypeScript convention
+                {selector: "default",
+                    format: ["camelCase"],
+                    leadingUnderscore: "allow",
+                    trailingUnderscore: "allow"},
+                {selector: "import",
+                    format: ["camelCase", "PascalCase"]},
+                {selector: "variable",
+                    format: ["camelCase", "UPPER_CASE"],
+                    leadingUnderscore: "allow",
+                    trailingUnderscore: "allow"},
+                {selector: "typeLike",
+                    format: ["PascalCase"]}
+            ],
             "@typescript-eslint/no-magic-numbers": "off",
             "@typescript-eslint/prefer-readonly-parameter-types": "off", // Wrong immutable undestand
-            "@typescript-eslint/no-floating-promises": "off", // Block async promises
-            "@typescript-eslint/no-extra-parens": "off", // Conflict with react best practise in jsx
-            "@typescript-eslint/promise-function-async": "off", // More nice
-            "@typescript-eslint/no-misused-promises": ["error", {checksVoidReturn: false}], // More nice
-            "@typescript-eslint/naming-convention": "off", // For react covered by @eslint-react/naming-convention/*
-            "@typescript-eslint/no-confusing-void-expression": "off", // More nice
-            "@typescript-eslint/member-ordering": "off" // Need correct priority
+            "@typescript-eslint/no-confusing-void-expression": "off" // More nice
         }
     },
 
@@ -70,7 +82,6 @@ export default defineConfig([
              * Eslint rules
              */
             "no-magic-numbers": "off", // Conflict with void 0
-            "sort-imports": "off", // Need found sorter
             "sort-keys": "off", // More nice
             "one-var": ["error", "never"], // More nice
             "no-ternary": "off", // More nice
@@ -101,8 +112,8 @@ export default defineConfig([
             "@stylistic/multiline-ternary": ["error", "always-multiline"], // More nice
             "@stylistic/array-element-newline": ["error", "consistent"], // More nice
             "@stylistic/operator-linebreak": ["error", "after"], // More nice
-            "@stylistic/no-extra-parens": "off",
-            "@stylistic/dot-location": ["error", "property"], // Maybe later?
+            "@stylistic/no-extra-parens": "off", // Conflict with @stylistic/no-confusing-arrow
+            "@stylistic/dot-location": ["error", "property"], // More nice
             "@stylistic/indent-binary-ops": ["error", 4] // Other indends in stylistic 4
         }
     }

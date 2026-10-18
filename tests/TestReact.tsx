@@ -12,17 +12,17 @@
 
 import * as React from "react";
 import {
-    useState,
-    useEffect,
-    useCallback,
-    useMemo,
-    useRef,
     createContext,
-    useContext,
-    useReducer,
-    memo,
     forwardRef,
-    useImperativeHandle
+    memo,
+    useCallback,
+    useContext,
+    useEffect,
+    useImperativeHandle,
+    useMemo,
+    useReducer,
+    useRef,
+    useState
 } from "react";
 
 /*
@@ -44,6 +44,7 @@ interface ProblematicInterface {
 
 // Testing interfaces with issues
 interface UserData {
+    [key: string]: unknown; // Index signature with any
     id: number;
     email: string;
     password: string; // Sensitive data in interface
@@ -55,7 +56,6 @@ interface UserData {
         preferences: Record<string, unknown>; // Should be more specific
     };
     metadata?: Record<string, unknown>; // Forbidden object type
-    [key: string]: unknown; // Index signature with any
 }
 
 // Testing complex inheritance patterns
@@ -85,24 +85,24 @@ const exampleHandler: EventHandler<string> = (data) => console.log(data);
 
 // Testing enums with potential issues
 enum ActionType {
-    INCREMENT = "INCREMENT",
-    DECREMENT = "DECREMENT",
-    RESET = "RESET",
-    SET_NAME = "SET_NAME",
-    DELETE = "DELETE"
+    Increment = "INCREMENT",
+    Decrement = "DECREMENT",
+    Reset = "RESET",
+    SetName = "SET_NAME",
+    Remove = "DELETE"
 }
 
 enum StatusCodes {
-    OK = 200,
-    NOT_FOUND = 404,
-    ERROR = 500,
-    CREATED = 201 // Fixed duplicate value
+    Ok = 200,
+    NotFound = 404,
+    Error = 500,
+    Created = 201 // Fixed duplicate value
 }
 
 // Testing utility types misuse
 type PartialUser = Partial<UserData>;
 type RequiredUser = Required<UserData>;
-type PickedUser = Pick<UserData, "id" | "email" | "nonexistent">; // Non-existent key
+type PickedUser = Pick<UserData, "id" | "email">; // Fixed non-existent key
 
 // Usage examples to avoid unused errors
 const partialExample: PartialUser = {id: 1};
@@ -126,29 +126,29 @@ const requiredExample: RequiredUser = {
 
 // Testing problematic object definitions
 const CONFIG = {
-    API_URL: "https://api.example.com",
-    TIMEOUT: 5000,
-    RETRY_ATTEMPTS: 3,
-    SECRET_KEY: "super-secret-key-123", // Hardcoded secret
-    FEATURES: {
-        DARK_MODE: true,
-        NOTIFICATIONS: false,
-        ANALYTICS: true,
-        DEBUG: process.env.NODE_ENV === "development" // Environment check in constant
+    apiUrl: "https://api.example.com",
+    timeout: 5000,
+    retryAttempts: 3,
+    secretKey: "super-secret-key-123", // Hardcoded secret
+    features: {
+        darkMode: true,
+        notifications: false,
+        analytics: true,
+        debug: process.env.NODE_ENV === "development" // Environment check in constant
     },
-    ENDPOINTS: {
-        USERS: "/users",
-        POSTS: "/posts",
-        MEMBERS: "/members" // Fixed duplicate key
+    endpoints: {
+        users: "/users",
+        posts: "/posts",
+        members: "/members" // Fixed duplicate key
     }
 };
 
 // Testing magic numbers and strings
 const MAGIC_NUMBERS = {
-    MAX_RETRIES: 42,
-    BUFFER_SIZE: 1024,
-    DELAY: 300,
-    THRESHOLD: 0.75
+    maxRetries: 42,
+    bufferSize: 1024,
+    delay: 300,
+    threshold: 0.75
 };
 
 const HARDCODED_VALUES = [
@@ -169,9 +169,16 @@ const DUPLICATE_ARRAY = [1, 2, 3, 2, 4, 1, 5]; // Duplicates kept for testing
  * =============================================================================
  */
 
+// Type guards for safe narrowing
+const isObject = (value: unknown): value is Record<string, unknown> => typeof value === "object" && value !== null && !Array.isArray(value);
+const isString = (value: unknown): value is string => typeof value === "string";
+
 // Testing functions with any parameters
 const processData = function processData (data: unknown): unknown {
-    return (data as Record<string, Record<string, Record<string, unknown>>>).something.deeply.nested;
+    if (isObject(data) && isObject(data.something) && isObject(data.something.deeply)) {
+        return data.something.deeply.nested;
+    }
+    return null;
 };
 
 const transformData = (input: unknown, callback: (arg: unknown) => unknown): unknown => {
@@ -189,19 +196,22 @@ const fetchData = async function fetchData (url: string): Promise<unknown> {
     return response.json(); // No error handling
 };
 
-const unreliableAsync = () => new Promise((resolve, reject) => {
-    setTimeout(() => {
-        if (Math.random() > 0.5) {
-            resolve("success");
-        } else {
-            reject(new Error("failed"));
-        }
-    }, Math.random() * 1000);
-});
+const unreliableAsync = async (): Promise<string> => {
+    const result = await new Promise<string>((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() > 0.5) {
+                resolve("success");
+            } else {
+                reject(new Error("failed"));
+            }
+        }, Math.random() * 1000);
+    });
+    return result;
+};
 
 // Testing functions with side effects
 let globalCounter = 0; // Global mutable state
-const incrementGlobal = () => {
+const incrementGlobal = (): void => {
     globalCounter += 1; // Mutation in function
     console.log("Counter:", globalCounter);
     localStorage.setItem("counter", globalCounter.toString());
@@ -214,23 +224,20 @@ const complexFunction = function complexFunction (params: {
     thirdParam?: unknown;
     restParams: unknown[];
 }): unknown {
-    const {firstParam, secondParam, thirdParam, restParams} = params;
+    const {firstParam, thirdParam, restParams} = params;
 
-    if (firstParam) {
-        if (secondParam) {
-            if (thirdParam) {
-                return (restParams as Record<string, unknown>[]).map((item) => item.value);
-            }
-        }
+    if (firstParam !== void 0 && thirdParam !== void 0) {
+        return restParams.filter(isObject).map((item) => item.value);
     }
     return null;
 };
 
 // Testing arrow functions with implicit any
-const mapFunction = (items: unknown[]) => (items as Record<string, unknown>[]).map((item) => item.value);
-const filterFunction = (items: unknown[]) => (items as Record<string, unknown>[]).filter((item) => item.active);
-const reduceFunction = (items: unknown[]) => (items as Record<string, unknown>[])
-    .reduce((acc, item) => acc + (item.count as number), 0);
+const mapFunction = (items: unknown[]): unknown[] => items.filter(isObject).map((item) => item.value);
+const filterFunction = (items: unknown[]): Record<string, unknown>[] => items.filter(isObject).filter((item) => item.active === true);
+const reduceFunction = (items: unknown[]): number => (items
+    .filter(isObject)
+    .reduce((acc: number, item: Record<string, unknown>): number => (typeof item.count === "number" ? acc + item.count : acc), 0));
 
 /*
  * =============================================================================
@@ -254,7 +261,9 @@ interface ProblematicComponentState {
 
 class ProblematicComponent extends React.Component<ProblematicComponentProps, ProblematicComponentState> {
 
-    constructor (props: ProblematicComponentProps) {
+    private readonly timer: NodeJS.Timeout | null = null;
+
+    public constructor (props: ProblematicComponentProps) {
         super(props);
         this.state = {
             data: null,
@@ -269,7 +278,7 @@ class ProblematicComponent extends React.Component<ProblematicComponentProps, Pr
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount (): void {
+    public componentDidMount (): void {
         // Direct DOM manipulation
         const element = document.getElementById("some-element");
         if (element) {
@@ -280,14 +289,14 @@ class ProblematicComponent extends React.Component<ProblematicComponentProps, Pr
         window.addEventListener("resize", this.handleResize);
     }
 
-    shouldComponentUpdate (): boolean {
+    public shouldComponentUpdate (): boolean {
         // Use this to access component properties with destructuring
         const {data: propsData} = this.props;
         const {data: stateData} = this.state;
         return propsData !== stateData;
     }
 
-    componentDidUpdate (prevProps: ProblematicComponentProps): void {
+    public componentDidUpdate (prevProps: ProblematicComponentProps): void {
         const {data} = this.props;
         // Potential infinite loop - fixed by removing setState
         if (data !== prevProps.data) {
@@ -297,7 +306,7 @@ class ProblematicComponent extends React.Component<ProblematicComponentProps, Pr
     }
 
     // Missing cleanup - now properly implemented
-    componentWillUnmount (): void {
+    public componentWillUnmount (): void {
         // Clear timer and remove event listener
         if (this.timer) {
             clearInterval(this.timer);
@@ -305,19 +314,17 @@ class ProblematicComponent extends React.Component<ProblematicComponentProps, Pr
         window.removeEventListener("resize", this.handleResize);
     }
 
-    private timer: NodeJS.Timeout | null = null;
-
-    handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    public handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
         // Arrow function property that uses this
         event.stopPropagation();
         console.log("Button clicked in component:", this.constructor.name);
     };
 
-    handleSubmit (event: React.SyntheticEvent<HTMLFormElement>): void {
+    public handleSubmit (event: React.SyntheticEvent<HTMLFormElement>): void {
         event.preventDefault();
         const {data, loading, error, cache, history} = this.state;
         // Async operation without error handling
-        fetch("/api/submit", {
+        void fetch("/api/submit", {
             method: "POST",
             body: JSON.stringify({
                 data,
@@ -329,14 +336,14 @@ class ProblematicComponent extends React.Component<ProblematicComponentProps, Pr
         });
     }
 
-    handleResize = (): void => {
+    public handleResize = (): void => {
         this.forceUpdate(); // Force update anti-pattern
     };
 
-    render (): React.ReactNode {
+    public render (): React.ReactNode {
         const {data, loading, error} = this.state;
 
-        if (error) {
+        if (error !== null) {
             throw new Error(error); // Throwing in render
         }
 
@@ -376,6 +383,8 @@ interface ImpurePureComponentProps {
     readonly items?: Record<string, unknown>[];
 }
 
+// PascalCase is required for React components in JSX
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const ImpurePureComponent: React.FC<ImpurePureComponentProps> = (props) => {
     const {items} = props;
 
@@ -405,9 +414,13 @@ const ImpurePureComponent: React.FC<ImpurePureComponentProps> = (props) => {
  */
 
 // Testing custom hook with issues
-const useProblematicHook = (initialValue: unknown) => {
+const useProblematicHook = (initialValue: unknown): {
+    state: unknown;
+    updateState: (newValue: unknown) => void;
+    cache: Record<number, unknown>;
+} => {
     const [state, setState] = useState(initialValue);
-    const [cache, setCache] = useState({});
+    const [cache, setCache] = useState<Record<number, unknown>>({});
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     // Effect without dependencies
@@ -422,19 +435,19 @@ const useProblematicHook = (initialValue: unknown) => {
         }, 1000);
 
         intervalRef.current = timer;
-        return () => clearInterval(timer);
+        return (): void => clearInterval(timer);
     }, []); // Missing state dependency
 
     // Effect without cleanup
     useEffect(() => {
-        const subscription = {unsubscribe: () => {
+        const subscription = {unsubscribe: (): void => {
 
             /* Cleanup */
         }};
-        return () => subscription.unsubscribe();
+        return (): void => subscription.unsubscribe();
     }, []);
 
-    const updateState = (newValue: unknown) => {
+    const updateState = (newValue: unknown): void => {
         setState(newValue);
         setCache((prev) => ({...prev,
             [Date.now()]: newValue}));
@@ -446,8 +459,11 @@ const useProblematicHook = (initialValue: unknown) => {
 };
 
 // Testing problematic useCallback patterns
-const useEventHandlers = () => {
-    const [data, setData] = useState({});
+const useEventHandlers = (): {
+    handleClick: () => void;
+    handleSubmit: (formData: unknown) => void;
+} => {
+    const [data, setData] = useState<Record<string, unknown>>({});
 
     // UseCallback without dependencies
     const handleClick = useCallback(() => {
@@ -456,9 +472,11 @@ const useEventHandlers = () => {
     }, []);
 
     // UseCallback with wrong dependencies
-    const handleSubmit = useCallback((formData: unknown) => {
+    const handleSubmit = useCallback((formData: unknown): void => {
         const processedData = processData(formData);
-        setData(processedData as Record<string, unknown>);
+        if (isObject(processedData)) {
+            setData(processedData);
+        }
     }, []); // Missing processData dependency
 
     // Use data to avoid unused warning
@@ -469,7 +487,10 @@ const useEventHandlers = () => {
 };
 
 // Testing useMemo misuse
-const useExpensiveCalculation = (items: unknown[]) => {
+const useExpensiveCalculation = (items: unknown[]): {
+    result: number;
+    sideEffect: unknown[];
+} => {
     // Expensive calculation that's not actually expensive
     const result = useMemo(() => items.length, [items]);
 
@@ -477,7 +498,7 @@ const useExpensiveCalculation = (items: unknown[]) => {
     const sideEffect = useMemo(() => {
         console.log("Computing...");
         localStorage.setItem("cache", JSON.stringify(items));
-        return (items as Record<string, unknown>[]).map((item) => item.value);
+        return items.filter(isObject).map((item) => item.value);
     }, [items]);
 
     return {result,
@@ -491,17 +512,25 @@ const useExpensiveCalculation = (items: unknown[]) => {
  */
 
 // Testing context without default value
-const ProblematicContext = createContext<{
+interface ProblematicContextValue {
     state: Record<string, unknown>;
     setState: React.Dispatch<React.SetStateAction<Record<string, unknown>>>;
     timestamp: number;
     random: number;
-} | null>(null);
+}
+
+// PascalCase with 'Context' suffix is required by @eslint-react/naming-convention-context-name
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const ProblematicContext = createContext<ProblematicContextValue | null>(null);
+ProblematicContext.displayName = "ProblematicContext";
 
 // Testing context with any type
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const AnyContext = createContext<unknown>(null);
+AnyContext.displayName = "AnyContext";
 
 // Testing provider component with issues
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const ProblematicProvider: React.FC<{readonly children: React.ReactNode}> = ({children}) => {
     const [state, setState] = useState({});
 
@@ -521,7 +550,7 @@ const ProblematicProvider: React.FC<{readonly children: React.ReactNode}> = ({ch
 };
 
 // Testing context consumer with issues
-const useProblematicContext = () => {
+const useProblematicContext = (): ProblematicContextValue | null => {
     const context = useContext(ProblematicContext);
     // No null check
     return context;
@@ -550,11 +579,11 @@ const problematicReducer = (state: ReducerState, action: ReducerAction): Reducer
     switch (action.type) {
         case "SET_DATA":
             return {...state,
-                data: action.payload as Record<string, unknown>};
+                data: isObject(action.payload) ? action.payload : {}};
         case "UPDATE_USER":
             // Direct mutation
-            if (state.user && action.payload && typeof action.payload === "object" && "name" in action.payload) {
-                state.user.name = (action.payload as {name: string}).name;
+            if (state.user && isObject(action.payload) && isString(action.payload.name)) {
+                state.user.name = action.payload.name;
             }
             return state;
         case "RESET":
@@ -565,15 +594,20 @@ const problematicReducer = (state: ReducerState, action: ReducerAction): Reducer
 };
 
 // Testing useReducer with issues
-const useProblematicReducer = () => {
+const useProblematicReducer = (): {
+    state: ReducerState;
+    setData: (data: Record<string, unknown>) => void;
+    updateUser: (user: {name: string}) => void;
+    reset: () => void;
+} => {
     const [state, dispatch] = useReducer(problematicReducer, {});
 
     // Actions without proper typing
-    const setData = (data: Record<string, unknown>) => dispatch({type: "SET_DATA",
+    const setData = (data: Record<string, unknown>): void => dispatch({type: "SET_DATA",
         payload: data});
-    const updateUser = (user: {name: string}) => dispatch({type: "UPDATE_USER",
+    const updateUser = (user: {name: string}): void => dispatch({type: "UPDATE_USER",
         payload: user});
-    const reset = () => dispatch({type: "RESET"});
+    const reset = (): void => dispatch({type: "RESET"});
 
     return {state,
         setData,
@@ -598,21 +632,22 @@ interface ProblematicForwardRefProps extends React.InputHTMLAttributes<HTMLInput
     readonly placeholder?: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const ProblematicForwardRef = forwardRef<CustomInputHandle, ProblematicForwardRefProps>((props, ref) => {
     const internalRef = useRef<HTMLInputElement>(null);
     const {placeholder} = props;
 
     useImperativeHandle(ref, () => ({
-        focus: () => internalRef.current?.focus(),
-        getValue: () => internalRef.current?.value ?? "",
-        doSomething: () => {
+        focus: (): void => internalRef.current?.focus(),
+        getValue: (): string => internalRef.current?.value ?? "",
+        doSomething: (): void => {
             // Side effect in imperative handle
             console.log("Doing something...");
             globalCounter += 1;
         }
     }));
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         console.log("Input changed:", event.target.value);
     };
 
@@ -635,6 +670,7 @@ ProblematicForwardRef.displayName = "ProblematicForwardRef";
  */
 
 // Testing memo components with proper types and display names
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const ProblematicMemo = memo((props: {
     readonly color?: string;
     readonly size?: number;
@@ -659,6 +695,7 @@ const ProblematicMemo = memo((props: {
 ProblematicMemo.displayName = "ProblematicMemo";
 
 // Testing memo with problematic comparison function
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const ProblematicMemoWithCompare = memo((props: {readonly children: React.ReactNode}) => (
     <div>
         {props.children}
@@ -677,6 +714,8 @@ ProblematicMemoWithCompare.displayName = "ProblematicMemoWithCompare";
  * =============================================================================
  */
 
+// PascalCase is required for React components in JSX
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props) => {
     // Multiple state variables with proper typing
     const [data, setData] = useState<Record<string, unknown>[]>([]);
@@ -707,11 +746,15 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
     // Effects with various issues
     useEffect(() => {
         // No cleanup for async operation
-        fetchData("/api/data").then((apiResult: unknown) => {
-            if (Array.isArray(apiResult)) {
-                setData(apiResult as Record<string, unknown>[]);
-            }
-        });
+        fetchData("/api/data")
+            .then((apiResult: unknown) => {
+                if (Array.isArray(apiResult)) {
+                    setData(apiResult.filter(isObject));
+                }
+            })
+            .catch((fetchError: unknown): void => {
+                console.error("Failed to fetch data:", fetchError);
+            });
     }, []);
 
     useEffect(() => {
@@ -731,7 +774,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
 
     useEffect(() => {
         // Event listener without cleanup
-        const handleKeyPress = (event: KeyboardEvent) => {
+        const handleKeyPress = (event: KeyboardEvent): void => {
             if (event.key === "Escape") {
                 setModalOpen(false);
             }
@@ -772,7 +815,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
         }
 
         return data.filter((item: Record<string, unknown>) => Object.entries(filters).every(([key, value]: [string, unknown]) => {
-            if (!value) {
+            if (value === void 0 || value === null || value === "") {
                 return true;
             }
             return item[key] === value;
@@ -781,24 +824,35 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
 
     const expensiveCalculation = useMemo(() => {
         console.log("Calculating..."); // Side effect in memo
-        return filteredData.reduce((acc: number, item: Record<string, unknown>) => acc + ((item.value as number) || 0), 0);
+        return filteredData.reduce((acc: number, item: Record<string, unknown>): number => acc +
+            (typeof item.value === "number" ? item.value : 0), 0);
     }, [filteredData]);
 
     // Event handlers with inline functions
-    const handleFormSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    const handleFormSubmit = (event: React.SyntheticEvent<HTMLFormElement>): void => {
         event.preventDefault();
-        const formDataObj = new FormData(event.target as HTMLFormElement);
+        const formDataObj = new FormData(event.currentTarget);
         const formDataEntries = Object.fromEntries(formDataObj);
         handleSubmit(formDataEntries);
     };
 
-    const handleModalClose = () => {
+    const handleModalClose = (): void => {
         setModalOpen(false);
         setFormData({});
     };
 
     // Conditional rendering with potential issues
-    const renderContent = () => {
+    const getItemTitle = (item: Record<string, unknown>): string => {
+        if (isString(item.title)) {
+            return item.title;
+        }
+        if (isString(item.name)) {
+            return item.name;
+        }
+        return "Untitled";
+    };
+
+    const renderContent = (): React.ReactNode => {
         if (loading) {
             return (
                 <div>
@@ -807,7 +861,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
             );
         }
 
-        if (error) {
+        if (error !== null) {
             return (
                 <div>
                     Error:
@@ -828,7 +882,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
             <div>
                 {filteredData.map((item: Record<string, unknown>, index: number) => (
                     <div
-                        key={(item.id as string) || `item-${String(index)}`} // Better key handling
+                        key={isString(item.id) ? item.id : `item-${String(index)}`} // Better key handling
                         onClick={() => handleItemSelect(item, !selectedItems.includes(item))}
                         onKeyDown={(event) => {
                             if (event.key === "Enter" || event.key === " ") {
@@ -845,16 +899,16 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
                         tabIndex={0}
                     >
                         <h3>
-                            {(item.title as string) || (item.name as string) || "Untitled"}
+                            {getItemTitle(item)}
                         </h3>
 
                         <p>
-                            {item.description as string}
+                            {isString(item.description) ? item.description : ""}
                         </p>
 
-                        {item.tags ?
+                        {Array.isArray(item.tags) ?
                             <div>
-                                {(item.tags as unknown[]).map((tag: unknown) => (
+                                {item.tags.map((tag: unknown) => (
                                     <span
                                         key={`${String(item.id)}-tag-${String(tag)}`} // Better key using item id and tag
                                         style={{
@@ -865,7 +919,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
                                             marginRight: "4px"
                                         }}
                                     >
-                                        {tag as string}
+                                        {isString(tag) ? tag : String(tag)}
                                     </span>
                                 ))}
                             </div> :
@@ -912,7 +966,7 @@ export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props)
                     </button>
 
                     <button
-                        onClick={() => setData(MIXED_ARRAY as Record<string, unknown>[])}
+                        onClick={() => setData(MIXED_ARRAY.filter(isObject))}
                         type="button"
                     >
                         Load Test Data
@@ -1147,9 +1201,9 @@ export const globalHelpers = {
 
 // Export test data for linter testing
 export const testData = {
-    HARDCODED_VALUES,
-    SPARSE_ARRAY,
-    DUPLICATE_ARRAY,
+    hardcodedValues: HARDCODED_VALUES,
+    sparseArray: SPARSE_ARRAY,
+    duplicateArray: DUPLICATE_ARRAY,
     exampleStatus,
     exampleId,
     exampleCallback,
@@ -1158,11 +1212,16 @@ export const testData = {
     requiredExample
 };
 
+const pickedUserSample: PickedUser = {
+    id: 0,
+    email: "sample@example.com"
+};
+
 // Export additional test utilities
 export const testUtils = {
-    AnyContext,
+    anyContext: AnyContext,
     useProblematicContext,
-    PickedUser: {} as PickedUser
+    pickedUser: pickedUserSample
 };
 
 // Some global type augmentation for testing
@@ -1178,6 +1237,7 @@ declare module "react" {
     interface HTMLAttributes<T = HTMLElement> {
         customProp?: Record<string, unknown>;
         // Using T to avoid unused error
+        // eslint-disable-next-line @typescript-eslint/naming-convention -- HTML data-* attribute
         "data-element-type"?: T extends HTMLElement ? string : never;
     }
 }
