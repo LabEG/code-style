@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1.0] - 2026-10-18
+
+### 🚀 Features
+
+- Enable full typescript-eslint rule set with naming conventions
+
 ## [7.0.0] - 2026-10-18
 
 ### 🚀 Features
