@@ -68,6 +68,30 @@ export default defineConfig([
     },
 
     {
+        files: ["**/*.tsx"],
+        rules: {
+            // React components are declared as PascalCase variables
+            "@typescript-eslint/naming-convention": [
+                "error",
+                {selector: "enumMember",
+                    format: ["PascalCase"]}, // Enum members are PascalCase by TypeScript convention
+                {selector: "default",
+                    format: ["camelCase"],
+                    leadingUnderscore: "allow",
+                    trailingUnderscore: "allow"},
+                {selector: "import",
+                    format: ["camelCase", "PascalCase"]},
+                {selector: "variable",
+                    format: ["camelCase", "UPPER_CASE", "PascalCase"],
+                    leadingUnderscore: "allow",
+                    trailingUnderscore: "allow"}, // React components are PascalCase
+                {selector: "typeLike",
+                    format: ["PascalCase"]}
+            ]
+        }
+    },
+
+    {
         languageOptions: {
             ecmaVersion: "latest",
             sourceType: "module",

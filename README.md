@@ -72,7 +72,7 @@ import codeStyle from "@labeg/code-style";
 
 export default [
     ...codeStyle,
-    nextPlugin.configs["flat/core-web-vitals"]
+    nextPlugin.configs["core-web-vitals"]
 ];
 ```
 

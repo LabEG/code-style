@@ -384,7 +384,6 @@ interface ImpurePureComponentProps {
 }
 
 // PascalCase is required for React components in JSX
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const ImpurePureComponent: React.FC<ImpurePureComponentProps> = (props) => {
     const {items} = props;
 
@@ -520,17 +519,14 @@ interface ProblematicContextValue {
 }
 
 // PascalCase with 'Context' suffix is required by @eslint-react/naming-convention-context-name
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const ProblematicContext = createContext<ProblematicContextValue | null>(null);
 ProblematicContext.displayName = "ProblematicContext";
 
 // Testing context with any type
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const AnyContext = createContext<unknown>(null);
 AnyContext.displayName = "AnyContext";
 
 // Testing provider component with issues
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const ProblematicProvider: React.FC<{readonly children: React.ReactNode}> = ({children}) => {
     const [state, setState] = useState({});
 
@@ -632,7 +628,6 @@ interface ProblematicForwardRefProps extends React.InputHTMLAttributes<HTMLInput
     readonly placeholder?: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const ProblematicForwardRef = forwardRef<CustomInputHandle, ProblematicForwardRefProps>((props, ref) => {
     const internalRef = useRef<HTMLInputElement>(null);
     const {placeholder} = props;
@@ -670,7 +665,6 @@ ProblematicForwardRef.displayName = "ProblematicForwardRef";
  */
 
 // Testing memo components with proper types and display names
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const ProblematicMemo = memo((props: {
     readonly color?: string;
     readonly size?: number;
@@ -695,7 +689,6 @@ const ProblematicMemo = memo((props: {
 ProblematicMemo.displayName = "ProblematicMemo";
 
 // Testing memo with problematic comparison function
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const ProblematicMemoWithCompare = memo((props: {readonly children: React.ReactNode}) => (
     <div>
         {props.children}
@@ -715,7 +708,6 @@ ProblematicMemoWithCompare.displayName = "ProblematicMemoWithCompare";
  */
 
 // PascalCase is required for React components in JSX
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export const ComplexTestComponent: React.FC<{readonly theme?: string}> = (props) => {
     // Multiple state variables with proper typing
     const [data, setData] = useState<Record<string, unknown>[]>([]);
