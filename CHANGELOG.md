@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.2.0] - 2026-11-25
+
+### 🚀 Features
+
+- Allow PascalCase variable names for React components in tsx files
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps-dev)* Bump fast-uri from 3.1.8 to 3.1.9 (#110)
+
 ## [7.1.0] - 2026-10-18
 
 ### 🚀 Features
